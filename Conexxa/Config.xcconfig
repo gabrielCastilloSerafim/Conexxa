@@ -1,0 +1,13 @@
+//
+//  Config.xcconfig
+//  Conexxa
+//
+//  Created by Gabriel Castillo Serafim on 11/9/23.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+
+MARKETING_VERSION = 1.0.0
+CURRENT_PROJECT_VERSION = 1

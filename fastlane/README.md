@@ -50,13 +50,37 @@ Build binary
 
 Release
 
-### ios testFlight
+### ios uploadTest
 
 ```sh
-[bundle exec] fastlane ios testFlight
+[bundle exec] fastlane ios uploadTest
 ```
 
 Uploads to TestFlight
+
+### ios version_bump_major
+
+```sh
+[bundle exec] fastlane ios version_bump_major
+```
+
+Increments major app version
+
+### ios version_bump_minor
+
+```sh
+[bundle exec] fastlane ios version_bump_minor
+```
+
+Increments minor app version
+
+### ios version_bump_patch
+
+```sh
+[bundle exec] fastlane ios version_bump_patch
+```
+
+Increments patch app version
 
 ----
 

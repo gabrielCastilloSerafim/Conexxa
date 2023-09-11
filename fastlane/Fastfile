@@ -1,21 +1,21 @@
 fastlane_require "dotenv"
 
-before_all do
+  before_all do
 
     Dotenv.load".env.secret"
     
-end
+  end
 
 
-desc "Create on Developer portal and AppStore Connect"
-lane :create_app do
+  desc "Create on Developer portal and AppStore Connect"
+  lane :create_app do
 
-  create_app_online # produce
+    create_app_online # produce
   
-end
+ end
 
 
-platform :ios do
+  platform :ios do
 
   before_all do
   
@@ -51,13 +51,85 @@ platform :ios do
     upload_to_app_store # deliver
     
   end
+  
 
   desc "Uploads to TestFlight"
-  lane :testFlight do 
+  lane :uploadTest do
 	
     build
     _upload_to_testflight	
 
   end
   
+  
+  desc 'Increments major app version'
+  lane :version_bump_major do
+  
+    version_bump("major")
+    
+  end
+  
+
+ desc 'Increments minor app version'
+ lane :version_bump_minor do
+
+    version_bump("minor")
+    
+ end
+
+
+ desc 'Increments patch app version'
+ lane :version_bump_patch do
+
+    version_bump("patch")
+    
+ end
+
+
+ def version_bump(type)
+
+    file_path = './Conexxa/Config.xcconfig'
+    version_key = 'MARKETING_VERSION'
+    
+    current_version = get_xcconfig_value(
+      path: file_path,
+      name: version_key
+    )
+    
+    puts "Current Version: #{current_version}"
+    puts "Version Bump: #{type}"
+
+    components = current_version.split('.')
+    major = components[0].to_i
+    minor = components[1].to_i
+    patch = components[2].to_i
+
+    if type == "major"
+      major += 1
+      minor = 0
+      patch = 0
+      
+    elsif type == "minor"
+      minor += 1
+      patch = 0
+      
+    elsif type == "patch"
+      patch += 1
+      
+    else
+      abort("Unknown version bump type: #{type}\nValid options: major, minor, patch.")
+    end
+
+    new_version = [major, minor, patch].join('.')
+    puts "New Version: #{new_version}"
+
+    update_xcconfig_value(
+      path: file_path,
+      name: version_key,
+      value: new_version
+    )
+    
+  end
+
+
 end

@@ -44,6 +44,7 @@
 		FF5E818C2AAE36CD002E6E1B /* ConexxaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ConexxaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF5E81902AAE36CD002E6E1B /* ConexxaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConexxaUITests.swift; sourceTree = "<group>"; };
 		FF5E81922AAE36CD002E6E1B /* ConexxaUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConexxaUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		FF5E81A12AAFC534002E6E1B /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +99,7 @@
 				FF5E81772AAE36CC002E6E1B /* ContentView.swift */,
 				FF5E81792AAE36CD002E6E1B /* Assets.xcassets */,
 				FF5E817B2AAE36CD002E6E1B /* Preview Content */,
+				FF5E81A12AAFC534002E6E1B /* Config.xcconfig */,
 			);
 			path = Conexxa;
 			sourceTree = "<group>";
