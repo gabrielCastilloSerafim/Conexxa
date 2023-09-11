@@ -129,6 +129,8 @@ fastlane_require "dotenv"
       value: new_version
     )
     
+    git_commit(path: "./Conexxa/Config.xcconfig", message: "Version Bump: v#{new_version}")
+    
   end
 
 
