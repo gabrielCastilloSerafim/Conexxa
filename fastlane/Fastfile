@@ -27,7 +27,7 @@ fastlane_require "dotenv"
   desc "Sync signing"
   lane :signing do
   
-	sync_code_signing # match
+    sync_code_signing # match
  
     mapping = Actions.lane_context[SharedValues::MATCH_PROVISIONING_PROFILE_MAPPING]
     update_code_signing_settings(profile_name: mapping[ENV['MATCH_APP_IDENTIFIER']])
@@ -55,9 +55,9 @@ fastlane_require "dotenv"
 
   desc "Uploads to TestFlight"
   lane :uploadTest do
-	
+    
     build
-    _upload_to_testflight	
+    _upload_to_testflight
 
   end
   
@@ -90,10 +90,16 @@ fastlane_require "dotenv"
 
     file_path = './Conexxa/Config.xcconfig'
     version_key = 'MARKETING_VERSION'
+    build_number_key = 'CURRENT_PROJECT_VERSION'
     
     current_version = get_xcconfig_value(
       path: file_path,
       name: version_key
+    )
+    
+    current_build_number = get_xcconfig_value(
+      path: file_path,
+      name: build_number_key
     )
     
     puts "Current Version: #{current_version}"
@@ -122,6 +128,8 @@ fastlane_require "dotenv"
 
     new_version = [major, minor, patch].join('.')
     puts "New Version: #{new_version}"
+    
+    new_build_number = (current_build_number.to_i + 1).to_s
 
     update_xcconfig_value(
       path: file_path,
@@ -129,9 +137,16 @@ fastlane_require "dotenv"
       value: new_version
     )
     
-    git_commit(path: "./Conexxa/Config.xcconfig", message: "Version Bump: v#{new_version}")
+    update_xcconfig_value(
+      path: file_path,
+      name: build_number_key,
+      value: new_build_number
+    )
+    
+    git_commit(path: "./Conexxa/Config.xcconfig", message: "Version Bump -- v#{new_version} -- (#{new_build_number})")
     
   end
 
 
 end
+
