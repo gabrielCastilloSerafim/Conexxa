@@ -14,6 +14,9 @@
 		FF5E81872AAE36CD002E6E1B /* ConexxaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5E81862AAE36CD002E6E1B /* ConexxaTests.swift */; };
 		FF5E81912AAE36CD002E6E1B /* ConexxaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5E81902AAE36CD002E6E1B /* ConexxaUITests.swift */; };
 		FF5E81932AAE36CD002E6E1B /* ConexxaUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5E81922AAE36CD002E6E1B /* ConexxaUITestsLaunchTests.swift */; };
+		FF893FC52AB2604F005A87B7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FF893FC72AB2604F005A87B7 /* Localizable.strings */; };
+		FF893FCC2AB26189005A87B7 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF893FCB2AB26189005A87B7 /* StringExtension.swift */; };
+		FF893FCF2AB26291005A87B7 /* DataExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF893FCE2AB26291005A87B7 /* DataExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +48,9 @@
 		FF5E81902AAE36CD002E6E1B /* ConexxaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConexxaUITests.swift; sourceTree = "<group>"; };
 		FF5E81922AAE36CD002E6E1B /* ConexxaUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConexxaUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		FF5E81A12AAFC534002E6E1B /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
+		FF893FC62AB2604F005A87B7 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		FF893FCB2AB26189005A87B7 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		FF893FCE2AB26291005A87B7 /* DataExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +82,7 @@
 			isa = PBXGroup;
 			children = (
 				FF5E81742AAE36CC002E6E1B /* Conexxa */,
+				FF5E81A12AAFC534002E6E1B /* Config.xcconfig */,
 				FF5E81852AAE36CD002E6E1B /* ConexxaTests */,
 				FF5E818F2AAE36CD002E6E1B /* ConexxaUITests */,
 				FF5E81732AAE36CC002E6E1B /* Products */,
@@ -95,11 +102,10 @@
 		FF5E81742AAE36CC002E6E1B /* Conexxa */ = {
 			isa = PBXGroup;
 			children = (
-				FF5E81752AAE36CC002E6E1B /* ConexxaApp.swift */,
-				FF5E81772AAE36CC002E6E1B /* ContentView.swift */,
-				FF5E81792AAE36CD002E6E1B /* Assets.xcassets */,
+				FF893FC12AB25E72005A87B7 /* AppGeneral */,
+				FF893FC22AB25EB2005A87B7 /* Scenes */,
+				FF893FCA2AB2612D005A87B7 /* AppUtils */,
 				FF5E817B2AAE36CD002E6E1B /* Preview Content */,
-				FF5E81A12AAFC534002E6E1B /* Config.xcconfig */,
 			);
 			path = Conexxa;
 			sourceTree = "<group>";
@@ -127,6 +133,41 @@
 				FF5E81922AAE36CD002E6E1B /* ConexxaUITestsLaunchTests.swift */,
 			);
 			path = ConexxaUITests;
+			sourceTree = "<group>";
+		};
+		FF893FC12AB25E72005A87B7 /* AppGeneral */ = {
+			isa = PBXGroup;
+			children = (
+				FF5E81752AAE36CC002E6E1B /* ConexxaApp.swift */,
+				FF5E81792AAE36CD002E6E1B /* Assets.xcassets */,
+				FF893FC72AB2604F005A87B7 /* Localizable.strings */,
+			);
+			path = AppGeneral;
+			sourceTree = "<group>";
+		};
+		FF893FC22AB25EB2005A87B7 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				FF5E81772AAE36CC002E6E1B /* ContentView.swift */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		FF893FCA2AB2612D005A87B7 /* AppUtils */ = {
+			isa = PBXGroup;
+			children = (
+				FF893FCD2AB2626E005A87B7 /* FoundationExtensions */,
+			);
+			path = AppUtils;
+			sourceTree = "<group>";
+		};
+		FF893FCD2AB2626E005A87B7 /* FoundationExtensions */ = {
+			isa = PBXGroup;
+			children = (
+				FF893FCB2AB26189005A87B7 /* StringExtension.swift */,
+				FF893FCE2AB26291005A87B7 /* DataExtensions.swift */,
+			);
+			path = FoundationExtensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -210,11 +251,11 @@
 			};
 			buildConfigurationList = FF5E816D2AAE36CC002E6E1B /* Build configuration list for PBXProject "Conexxa" */;
 			compatibilityVersion = "Xcode 14.0";
-			developmentRegion = en;
+			developmentRegion = "pt-BR";
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				en,
 				Base,
+				"pt-BR",
 			);
 			mainGroup = FF5E81692AAE36CC002E6E1B;
 			productRefGroup = FF5E81732AAE36CC002E6E1B /* Products */;
@@ -234,6 +275,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FF5E817D2AAE36CD002E6E1B /* Preview Assets.xcassets in Resources */,
+				FF893FC52AB2604F005A87B7 /* Localizable.strings in Resources */,
 				FF5E817A2AAE36CD002E6E1B /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -260,7 +302,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				FF5E81782AAE36CC002E6E1B /* ContentView.swift in Sources */,
+				FF893FCF2AB26291005A87B7 /* DataExtensions.swift in Sources */,
 				FF5E81762AAE36CC002E6E1B /* ConexxaApp.swift in Sources */,
+				FF893FCC2AB26189005A87B7 /* StringExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -295,6 +339,17 @@
 			targetProxy = FF5E818D2AAE36CD002E6E1B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		FF893FC72AB2604F005A87B7 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FF893FC62AB2604F005A87B7 /* pt-BR */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		FF5E81942AAE36CD002E6E1B /* Debug */ = {

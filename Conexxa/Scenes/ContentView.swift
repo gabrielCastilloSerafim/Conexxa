@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+// ProcessInfo.processInfo.environment["API_BASE_URL"]
+
 struct ContentView: View {
     var body: some View {
         VStack {
