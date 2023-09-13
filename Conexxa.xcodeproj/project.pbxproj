@@ -82,7 +82,6 @@
 			isa = PBXGroup;
 			children = (
 				FF5E81742AAE36CC002E6E1B /* Conexxa */,
-				FF5E81A12AAFC534002E6E1B /* Config.xcconfig */,
 				FF5E81852AAE36CD002E6E1B /* ConexxaTests */,
 				FF5E818F2AAE36CD002E6E1B /* ConexxaUITests */,
 				FF5E81732AAE36CC002E6E1B /* Products */,
@@ -141,6 +140,7 @@
 				FF5E81752AAE36CC002E6E1B /* ConexxaApp.swift */,
 				FF5E81792AAE36CD002E6E1B /* Assets.xcassets */,
 				FF893FC72AB2604F005A87B7 /* Localizable.strings */,
+				FF5E81A12AAFC534002E6E1B /* Config.xcconfig */,
 			);
 			path = AppGeneral;
 			sourceTree = "<group>";

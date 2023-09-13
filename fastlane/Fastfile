@@ -88,7 +88,7 @@ fastlane_require "dotenv"
 
  def version_bump(type)
 
-    file_path = './Conexxa/Config.xcconfig'
+    file_path = './Conexxa/AppGeneral/Config.xcconfig'
     version_key = 'MARKETING_VERSION'
     build_number_key = 'CURRENT_PROJECT_VERSION'
     
@@ -143,7 +143,7 @@ fastlane_require "dotenv"
       value: new_build_number
     )
     
-    git_commit(path: "./Conexxa/Config.xcconfig", message: "Version Bump -- v#{new_version} -- (#{new_build_number})")
+    git_commit(path: file_path, message: "Version Bump -- v#{new_version} -- (#{new_build_number})")
     
   end
 
