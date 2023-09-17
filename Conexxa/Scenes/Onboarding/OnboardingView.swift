@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  OnboardingView.swift
 //  Conexxa
 //
 //  Created by Gabriel Castillo Serafim on 10/9/23.
@@ -9,7 +9,14 @@ import SwiftUI
 
 // ProcessInfo.processInfo.environment["API_BASE_URL"]
 
-struct ContentView: View {
+struct OnboardingView: View {
+    
+    let viewModel: OnboardingViewModelProtocol
+    
+    init(viewModel: OnboardingViewModelProtocol) {
+        self.viewModel = viewModel
+    }
+    
     var body: some View {
         VStack {
             Image(systemName: "globe")
@@ -23,6 +30,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        OnboardingView(viewModel: OnboardingViewModel(appStorage: Storage(), router: OnboardingBuilder()))
     }
 }

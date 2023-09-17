@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		FF5E81762AAE36CC002E6E1B /* ConexxaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5E81752AAE36CC002E6E1B /* ConexxaApp.swift */; };
-		FF5E81782AAE36CC002E6E1B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5E81772AAE36CC002E6E1B /* ContentView.swift */; };
+		FF5E81782AAE36CC002E6E1B /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5E81772AAE36CC002E6E1B /* OnboardingView.swift */; };
 		FF5E817A2AAE36CD002E6E1B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF5E81792AAE36CD002E6E1B /* Assets.xcassets */; };
 		FF5E817D2AAE36CD002E6E1B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF5E817C2AAE36CD002E6E1B /* Preview Assets.xcassets */; };
 		FF5E81872AAE36CD002E6E1B /* ConexxaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5E81862AAE36CD002E6E1B /* ConexxaTests.swift */; };
@@ -17,6 +17,11 @@
 		FF893FC52AB2604F005A87B7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FF893FC72AB2604F005A87B7 /* Localizable.strings */; };
 		FF893FCC2AB26189005A87B7 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF893FCB2AB26189005A87B7 /* StringExtension.swift */; };
 		FF893FCF2AB26291005A87B7 /* DataExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF893FCE2AB26291005A87B7 /* DataExtensions.swift */; };
+		FF893FD22AB57EE2005A87B7 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF893FD12AB57EE2005A87B7 /* Storage.swift */; };
+		FF893FD42AB57F07005A87B7 /* UserDefaultsPropertyWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF893FD32AB57F07005A87B7 /* UserDefaultsPropertyWrapper.swift */; };
+		FF893FD62AB57F28005A87B7 /* UserDefaultsObservation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF893FD52AB57F28005A87B7 /* UserDefaultsObservation.swift */; };
+		FF893FD92AB582E5005A87B7 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF893FD82AB582E5005A87B7 /* OnboardingViewModel.swift */; };
+		FF893FDB2AB58460005A87B7 /* OnboardingBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF893FDA2AB58460005A87B7 /* OnboardingBuilder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +44,7 @@
 /* Begin PBXFileReference section */
 		FF5E81722AAE36CC002E6E1B /* Conexxa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Conexxa.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF5E81752AAE36CC002E6E1B /* ConexxaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConexxaApp.swift; sourceTree = "<group>"; };
-		FF5E81772AAE36CC002E6E1B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		FF5E81772AAE36CC002E6E1B /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		FF5E81792AAE36CD002E6E1B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FF5E817C2AAE36CD002E6E1B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		FF5E81822AAE36CD002E6E1B /* ConexxaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ConexxaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -51,6 +56,11 @@
 		FF893FC62AB2604F005A87B7 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		FF893FCB2AB26189005A87B7 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		FF893FCE2AB26291005A87B7 /* DataExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataExtensions.swift; sourceTree = "<group>"; };
+		FF893FD12AB57EE2005A87B7 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
+		FF893FD32AB57F07005A87B7 /* UserDefaultsPropertyWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsPropertyWrapper.swift; sourceTree = "<group>"; };
+		FF893FD52AB57F28005A87B7 /* UserDefaultsObservation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsObservation.swift; sourceTree = "<group>"; };
+		FF893FD82AB582E5005A87B7 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
+		FF893FDA2AB58460005A87B7 /* OnboardingBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingBuilder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,7 +111,7 @@
 		FF5E81742AAE36CC002E6E1B /* Conexxa */ = {
 			isa = PBXGroup;
 			children = (
-				FF893FC12AB25E72005A87B7 /* AppGeneral */,
+				FF893FC12AB25E72005A87B7 /* AppDomain */,
 				FF893FC22AB25EB2005A87B7 /* Scenes */,
 				FF893FCA2AB2612D005A87B7 /* AppUtils */,
 				FF5E817B2AAE36CD002E6E1B /* Preview Content */,
@@ -134,7 +144,7 @@
 			path = ConexxaUITests;
 			sourceTree = "<group>";
 		};
-		FF893FC12AB25E72005A87B7 /* AppGeneral */ = {
+		FF893FC12AB25E72005A87B7 /* AppDomain */ = {
 			isa = PBXGroup;
 			children = (
 				FF5E81752AAE36CC002E6E1B /* ConexxaApp.swift */,
@@ -142,13 +152,13 @@
 				FF893FC72AB2604F005A87B7 /* Localizable.strings */,
 				FF5E81A12AAFC534002E6E1B /* Config.xcconfig */,
 			);
-			path = AppGeneral;
+			path = AppDomain;
 			sourceTree = "<group>";
 		};
 		FF893FC22AB25EB2005A87B7 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				FF5E81772AAE36CC002E6E1B /* ContentView.swift */,
+				FF893FD72AB582B4005A87B7 /* Onboarding */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -156,6 +166,7 @@
 		FF893FCA2AB2612D005A87B7 /* AppUtils */ = {
 			isa = PBXGroup;
 			children = (
+				FF893FD02AB57D36005A87B7 /* UserDefaultsAbstractionLayer */,
 				FF893FCD2AB2626E005A87B7 /* FoundationExtensions */,
 			);
 			path = AppUtils;
@@ -168,6 +179,26 @@
 				FF893FCE2AB26291005A87B7 /* DataExtensions.swift */,
 			);
 			path = FoundationExtensions;
+			sourceTree = "<group>";
+		};
+		FF893FD02AB57D36005A87B7 /* UserDefaultsAbstractionLayer */ = {
+			isa = PBXGroup;
+			children = (
+				FF893FD12AB57EE2005A87B7 /* Storage.swift */,
+				FF893FD32AB57F07005A87B7 /* UserDefaultsPropertyWrapper.swift */,
+				FF893FD52AB57F28005A87B7 /* UserDefaultsObservation.swift */,
+			);
+			path = UserDefaultsAbstractionLayer;
+			sourceTree = "<group>";
+		};
+		FF893FD72AB582B4005A87B7 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				FF5E81772AAE36CC002E6E1B /* OnboardingView.swift */,
+				FF893FD82AB582E5005A87B7 /* OnboardingViewModel.swift */,
+				FF893FDA2AB58460005A87B7 /* OnboardingBuilder.swift */,
+			);
+			path = Onboarding;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -301,10 +332,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FF5E81782AAE36CC002E6E1B /* ContentView.swift in Sources */,
+				FF5E81782AAE36CC002E6E1B /* OnboardingView.swift in Sources */,
 				FF893FCF2AB26291005A87B7 /* DataExtensions.swift in Sources */,
 				FF5E81762AAE36CC002E6E1B /* ConexxaApp.swift in Sources */,
+				FF893FD92AB582E5005A87B7 /* OnboardingViewModel.swift in Sources */,
 				FF893FCC2AB26189005A87B7 /* StringExtension.swift in Sources */,
+				FF893FD22AB57EE2005A87B7 /* Storage.swift in Sources */,
+				FF893FD62AB57F28005A87B7 /* UserDefaultsObservation.swift in Sources */,
+				FF893FDB2AB58460005A87B7 /* OnboardingBuilder.swift in Sources */,
+				FF893FD42AB57F07005A87B7 /* UserDefaultsPropertyWrapper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

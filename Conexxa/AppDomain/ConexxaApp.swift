@@ -11,7 +11,7 @@ import SwiftUI
 struct ConexxaApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            OnboardingBuilder.buildView()
         }
     }
 }

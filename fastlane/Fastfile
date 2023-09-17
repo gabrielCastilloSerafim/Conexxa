@@ -88,7 +88,7 @@ fastlane_require "dotenv"
 
  def version_bump(type)
 
-    file_path = './Conexxa/AppGeneral/Config.xcconfig'
+    file_path = './Conexxa/AppDomain/Config.xcconfig'
     version_key = 'MARKETING_VERSION'
     build_number_key = 'CURRENT_PROJECT_VERSION'
     
