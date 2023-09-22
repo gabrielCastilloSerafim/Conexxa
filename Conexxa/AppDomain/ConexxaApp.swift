@@ -9,9 +9,20 @@ import SwiftUI
 
 @main
 struct ConexxaApp: App {
+    
+    @StateObject var launchScreenManager = LaunchScreenManager()
+    
     var body: some Scene {
+        
         WindowGroup {
-            OnboardingBuilder.buildView()
+            ZStack {
+                OnboardingBuilder.buildView()
+                
+                if launchScreenManager.state != .completed {
+                    LaunchScreenView()
+                }
+            }
+            .environmentObject(launchScreenManager)
         }
     }
 }

@@ -11,6 +11,8 @@ import SwiftUI
 
 struct OnboardingView: View {
     
+    @EnvironmentObject var launchScreenManager: LaunchScreenManager
+    @State var didFinishLaunch: Bool = false
     let viewModel: OnboardingViewModelProtocol
     
     init(viewModel: OnboardingViewModelProtocol) {
@@ -18,18 +20,106 @@ struct OnboardingView: View {
     }
     
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        ZStack {
+            backgroundColor
+            VStack {
+                logoImage
+                sloganLabel
+                Spacer()
+            }
+            
+            blurCircle
+            
+            VStack {
+                noRegistrationButton
+                musicianRegistrationButton
+            }
+            .padding(.top, 197)
         }
-        .padding()
+        .opacity(didFinishLaunch ? 1 : 0)
+        .onAppear {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                launchScreenManager.dismiss()
+            }
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 4.1) {
+                withAnimation(.easeInOut(duration: 0.45)) {
+                    didFinishLaunch.toggle()
+                }
+            }
+        }
+    }
+    
+}
+
+private extension OnboardingView {
+    
+    var backgroundColor: some View {
+        ConexxaColor.white()
+            .ignoresSafeArea(.all)
+    }
+    
+    var logoImage: some View {
+        Image("ConexxaLogoVertical")
+            .resizable()
+            .scaledToFit()
+            .frame(height: 100)
+            .padding(.top, 100)
+            .padding(.trailing, 12)
+    }
+    
+    var sloganLabel: some View {
+        Text("slogan".localized)
+            .foregroundColor(ConexxaColor.black())
+            .fontWeight(.medium)
+            .padding(.top, 20)
+    }
+    
+    var blurCircle: some View {
+        
+        Circle()
+            .padding(.top, 195)
+            .padding(.leading, 25)
+            .padding(.trailing, 25)
+            .blur(radius: 10)
+            .foregroundColor(ConexxaColor.black())
+    }
+    
+    var noRegistrationButton: some View {
+        
+        Button {
+            print("Here")
+                
+            } label: {
+                Text("noRegistrationButtonText".localized)
+                    .fontWeight(.bold)
+                    .frame(width: 230, height: 60)
+                    .foregroundColor(ConexxaColor.black())
+                    .background(ConexxaColor.green())
+                    .cornerRadius(10)
+            }
+    }
+    
+    var musicianRegistrationButton: some View {
+        
+        Button {
+            print("Here")
+                
+            } label: {
+                Text("musicianRegisterButtonText".localized)
+                    .fontWeight(.bold)
+                    .frame(width: 230, height: 60)
+                    .foregroundColor(ConexxaColor.green())
+                    .background(ConexxaColor.blue())
+                    .cornerRadius(10)
+            }
+            .padding(.top, 25)
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         OnboardingView(viewModel: OnboardingViewModel(appStorage: Storage(), router: OnboardingBuilder()))
+            .environmentObject(LaunchScreenManager())
     }
 }

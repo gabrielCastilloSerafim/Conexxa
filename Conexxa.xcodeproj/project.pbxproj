@@ -22,6 +22,11 @@
 		FF893FD62AB57F28005A87B7 /* UserDefaultsObservation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF893FD52AB57F28005A87B7 /* UserDefaultsObservation.swift */; };
 		FF893FD92AB582E5005A87B7 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF893FD82AB582E5005A87B7 /* OnboardingViewModel.swift */; };
 		FF893FDB2AB58460005A87B7 /* OnboardingBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF893FDA2AB58460005A87B7 /* OnboardingBuilder.swift */; };
+		FF893FDE2AB73E40005A87B7 /* ConexxaColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF893FDD2AB73E40005A87B7 /* ConexxaColor.swift */; };
+		FF893FE02AB73E65005A87B7 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF893FDF2AB73E65005A87B7 /* ColorExtension.swift */; };
+		FF893FE32AB753C9005A87B7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF893FE22AB753C9005A87B7 /* LaunchScreen.storyboard */; };
+		FF893FE62AB7553F005A87B7 /* LaunchScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF893FE52AB7553F005A87B7 /* LaunchScreenView.swift */; };
+		FF893FE82AB75D63005A87B7 /* LaunchScreenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF893FE72AB75D63005A87B7 /* LaunchScreenManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +66,12 @@
 		FF893FD52AB57F28005A87B7 /* UserDefaultsObservation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsObservation.swift; sourceTree = "<group>"; };
 		FF893FD82AB582E5005A87B7 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
 		FF893FDA2AB58460005A87B7 /* OnboardingBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingBuilder.swift; sourceTree = "<group>"; };
+		FF893FDD2AB73E40005A87B7 /* ConexxaColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConexxaColor.swift; sourceTree = "<group>"; };
+		FF893FDF2AB73E65005A87B7 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
+		FF893FE12AB75090005A87B7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		FF893FE22AB753C9005A87B7 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		FF893FE52AB7553F005A87B7 /* LaunchScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenView.swift; sourceTree = "<group>"; };
+		FF893FE72AB75D63005A87B7 /* LaunchScreenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +122,7 @@
 		FF5E81742AAE36CC002E6E1B /* Conexxa */ = {
 			isa = PBXGroup;
 			children = (
+				FF893FE12AB75090005A87B7 /* Info.plist */,
 				FF893FC12AB25E72005A87B7 /* AppDomain */,
 				FF893FC22AB25EB2005A87B7 /* Scenes */,
 				FF893FCA2AB2612D005A87B7 /* AppUtils */,
@@ -149,6 +161,7 @@
 			children = (
 				FF5E81752AAE36CC002E6E1B /* ConexxaApp.swift */,
 				FF5E81792AAE36CD002E6E1B /* Assets.xcassets */,
+				FF893FE22AB753C9005A87B7 /* LaunchScreen.storyboard */,
 				FF893FC72AB2604F005A87B7 /* Localizable.strings */,
 				FF5E81A12AAFC534002E6E1B /* Config.xcconfig */,
 			);
@@ -158,6 +171,7 @@
 		FF893FC22AB25EB2005A87B7 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				FF893FE42AB75527005A87B7 /* LaunchScreen */,
 				FF893FD72AB582B4005A87B7 /* Onboarding */,
 			);
 			path = Scenes;
@@ -166,6 +180,7 @@
 		FF893FCA2AB2612D005A87B7 /* AppUtils */ = {
 			isa = PBXGroup;
 			children = (
+				FF893FDC2AB73E28005A87B7 /* Designables */,
 				FF893FD02AB57D36005A87B7 /* UserDefaultsAbstractionLayer */,
 				FF893FCD2AB2626E005A87B7 /* FoundationExtensions */,
 			);
@@ -177,6 +192,7 @@
 			children = (
 				FF893FCB2AB26189005A87B7 /* StringExtension.swift */,
 				FF893FCE2AB26291005A87B7 /* DataExtensions.swift */,
+				FF893FDF2AB73E65005A87B7 /* ColorExtension.swift */,
 			);
 			path = FoundationExtensions;
 			sourceTree = "<group>";
@@ -199,6 +215,23 @@
 				FF893FDA2AB58460005A87B7 /* OnboardingBuilder.swift */,
 			);
 			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		FF893FDC2AB73E28005A87B7 /* Designables */ = {
+			isa = PBXGroup;
+			children = (
+				FF893FDD2AB73E40005A87B7 /* ConexxaColor.swift */,
+			);
+			path = Designables;
+			sourceTree = "<group>";
+		};
+		FF893FE42AB75527005A87B7 /* LaunchScreen */ = {
+			isa = PBXGroup;
+			children = (
+				FF893FE52AB7553F005A87B7 /* LaunchScreenView.swift */,
+				FF893FE72AB75D63005A87B7 /* LaunchScreenManager.swift */,
+			);
+			path = LaunchScreen;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -307,6 +340,7 @@
 			files = (
 				FF5E817D2AAE36CD002E6E1B /* Preview Assets.xcassets in Resources */,
 				FF893FC52AB2604F005A87B7 /* Localizable.strings in Resources */,
+				FF893FE32AB753C9005A87B7 /* LaunchScreen.storyboard in Resources */,
 				FF5E817A2AAE36CD002E6E1B /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -334,13 +368,17 @@
 			files = (
 				FF5E81782AAE36CC002E6E1B /* OnboardingView.swift in Sources */,
 				FF893FCF2AB26291005A87B7 /* DataExtensions.swift in Sources */,
+				FF893FE82AB75D63005A87B7 /* LaunchScreenManager.swift in Sources */,
 				FF5E81762AAE36CC002E6E1B /* ConexxaApp.swift in Sources */,
 				FF893FD92AB582E5005A87B7 /* OnboardingViewModel.swift in Sources */,
+				FF893FDE2AB73E40005A87B7 /* ConexxaColor.swift in Sources */,
 				FF893FCC2AB26189005A87B7 /* StringExtension.swift in Sources */,
 				FF893FD22AB57EE2005A87B7 /* Storage.swift in Sources */,
 				FF893FD62AB57F28005A87B7 /* UserDefaultsObservation.swift in Sources */,
 				FF893FDB2AB58460005A87B7 /* OnboardingBuilder.swift in Sources */,
+				FF893FE02AB73E65005A87B7 /* ColorExtension.swift in Sources */,
 				FF893FD42AB57F07005A87B7 /* UserDefaultsPropertyWrapper.swift in Sources */,
+				FF893FE62AB7553F005A87B7 /* LaunchScreenView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -438,7 +476,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -492,7 +530,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -513,11 +551,14 @@
 				DEVELOPMENT_TEAM = 8395HM2DQS;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Conexxa/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -543,11 +584,14 @@
 				DEVELOPMENT_TEAM = 8395HM2DQS;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Conexxa/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
