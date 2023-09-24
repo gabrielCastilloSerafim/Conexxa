@@ -34,7 +34,7 @@ struct ConexxaApp: App {
                     
                 default:
                     
-                    OnboardingBuilder.buildView()
+                    OnboardingView()
                 }
                 
                 if launchScreenManager.state != .completed {

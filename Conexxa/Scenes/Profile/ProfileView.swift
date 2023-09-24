@@ -9,11 +9,7 @@ import SwiftUI
 
 struct ProfileView: View {
     
-    let viewModel: ProfileViewModelProtocol
-    
-    init(viewModel: ProfileViewModelProtocol) {
-        self.viewModel = viewModel
-    }
+    @StateObject private var vm = ProfileViewModel()
     
     var body: some View {
         
@@ -34,6 +30,6 @@ private extension ProfileView {
 
 struct ProfileView_Previews: PreviewProvider {
     static var previews: some View {
-        ProfileView(viewModel: ProfileViewModel())
+        ProfileView()
     }
 }

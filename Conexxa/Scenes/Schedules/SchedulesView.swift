@@ -9,11 +9,7 @@ import SwiftUI
 
 struct SchedulesView: View {
     
-    let viewModel: SchedulesViewModelProtocol
-    
-    init(viewModel: SchedulesViewModelProtocol) {
-        self.viewModel = viewModel
-    }
+    @StateObject private var vm = SchedulesViewModel()
     
     var body: some View {
         
@@ -34,6 +30,6 @@ private extension SchedulesView {
 
 struct SchedulesView_Previews: PreviewProvider {
     static var previews: some View {
-        SchedulesView(viewModel: SchedulesViewModel())
+        SchedulesView()
     }
 }

@@ -7,10 +7,6 @@
 
 import Foundation
 
-protocol ProfileViewModelProtocol {
-    
-}
-
-class ProfileViewModel: ProfileViewModelProtocol {
+class ProfileViewModel: ObservableObject {
     
 }

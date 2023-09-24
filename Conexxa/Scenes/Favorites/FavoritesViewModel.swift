@@ -7,10 +7,6 @@
 
 import Foundation
 
-protocol FavoritesViewModelProtocol {
-    
-}
-
-class FavoritesViewModel: FavoritesViewModelProtocol {
+class FavoritesViewModel: ObservableObject {
     
 }

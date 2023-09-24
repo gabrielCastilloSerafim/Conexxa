@@ -13,11 +13,7 @@ struct OnboardingView: View {
     
     @EnvironmentObject var launchScreenManager: LaunchScreenManager
     @State var didFinishLaunch: Bool = false
-    let viewModel: OnboardingViewModelProtocol
-    
-    init(viewModel: OnboardingViewModelProtocol) {
-        self.viewModel = viewModel
-    }
+    @StateObject private var vm = OnboardingViewModel(appStorage: Storage())
     
     var body: some View {
         
@@ -104,7 +100,7 @@ private extension OnboardingView {
                 .cornerRadius(10)
         }
         .simultaneousGesture(TapGesture().onEnded({
-            viewModel.didSeeOnboardingWithSelectedOption(option: Constants.APP_GUEST_MODE)
+            vm.didSeeOnboardingWithSelectedOption(option: Constants.APP_GUEST_MODE)
         }))
     }
     
@@ -127,7 +123,7 @@ private extension OnboardingView {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        OnboardingView(viewModel: OnboardingViewModel(appStorage: Storage()))
+        OnboardingView()
             .environmentObject(LaunchScreenManager())
     }
 }

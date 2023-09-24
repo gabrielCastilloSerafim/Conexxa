@@ -33,6 +33,11 @@ struct ConexxaColor {
     static func purple() -> Color {
         Color(hex: "#614ED9")
     }
+    
+    /// Hex: #D3D3D3
+    static func lightGray() -> Color {
+        Color(hex: "#D3D3D3")
+    }
 }
 
 

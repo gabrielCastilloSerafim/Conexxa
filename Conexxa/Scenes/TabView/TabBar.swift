@@ -45,7 +45,7 @@ private extension TabBar {
     var homeRootView: some View {
         
         NavigationStack {
-            HomeBuilder.buildView()
+            HomeView()
         }
         .tabItem {
             Label("home".localized, systemImage: "house")
@@ -56,7 +56,7 @@ private extension TabBar {
     var scheduleRootView: some View {
         
         NavigationStack {
-            SchedulesBuilder.buildView()
+            SchedulesView()
                 .navigationTitle("schedule".localized)
         }
         .tabItem {
@@ -68,7 +68,7 @@ private extension TabBar {
     var favoritesRootView: some View {
         
         NavigationStack {
-            FavoritesBuilder.buildView()
+            FavoritesView()
                 .navigationTitle("favorites".localized)
         }
         .tabItem {
@@ -80,7 +80,7 @@ private extension TabBar {
     var profileRootView: some View {
         
         NavigationStack {
-            ProfileBuilder.buildView()
+            ProfileView()
                 .navigationTitle("profile".localized)
         }
         .tabItem {

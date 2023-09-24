@@ -9,11 +9,7 @@ import SwiftUI
 
 struct FavoritesView: View {
     
-    let viewModel: FavoritesViewModelProtocol
-    
-    init(viewModel: FavoritesViewModelProtocol) {
-        self.viewModel = viewModel
-    }
+    @StateObject private var vm = FavoritesViewModel()
     
     var body: some View {
         
@@ -34,6 +30,6 @@ private extension FavoritesView {
 
 struct FavoritesView_Previews: PreviewProvider {
     static var previews: some View {
-        FavoritesView(viewModel: FavoritesViewModel())
+        FavoritesView()
     }
 }

@@ -7,10 +7,6 @@
 
 import Foundation
 
-protocol SchedulesViewModelProtocol {
-    
-}
-
-class SchedulesViewModel: SchedulesViewModelProtocol {
+class SchedulesViewModel: ObservableObject {
     
 }

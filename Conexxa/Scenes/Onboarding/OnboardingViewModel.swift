@@ -7,14 +7,7 @@
 
 import Foundation
 
-protocol OnboardingViewModelProtocol {
-    
-    var appStorage: AppStorageProtocol { get }
-    
-    func didSeeOnboardingWithSelectedOption(option: String)
-}
-
-class OnboardingViewModel: OnboardingViewModelProtocol {
+class OnboardingViewModel: ObservableObject {
     
     var appStorage: AppStorageProtocol
     
