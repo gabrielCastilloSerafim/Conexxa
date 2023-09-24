@@ -15,8 +15,27 @@ struct ConexxaApp: App {
     var body: some Scene {
         
         WindowGroup {
+            
             ZStack {
-                OnboardingBuilder.buildView()
+                
+                switch Storage().onboardingSeenWithOption {
+                    
+                case Constants.APP_GUEST_MODE:
+                    
+                    TabBar()
+                    
+                case Constants.APP_LOGGED_IN_CONTRACTOR:
+                    
+                    TabBar()
+                    
+                case Constants.APP_LOGGED_IN_MUSICIAN:
+                    
+                    TabBar()
+                    
+                default:
+                    
+                    OnboardingBuilder.buildView()
+                }
                 
                 if launchScreenManager.state != .completed {
                     LaunchScreenView()

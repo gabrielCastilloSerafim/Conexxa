@@ -20,36 +20,44 @@ struct OnboardingView: View {
     }
     
     var body: some View {
-        ZStack {
-            backgroundColor
-            VStack {
-                logoImage
-                sloganLabel
-                Spacer()
-            }
+        
+        NavigationView {
             
-            blurCircle
-            
-            VStack {
-                noRegistrationButton
-                musicianRegistrationButton
+            ZStack {
+                
+                backgroundColor
+                
+                VStack {
+                    
+                    logoImage
+                    sloganLabel
+                    Spacer()
+                }
+                
+                blurCircle
+                
+                VStack {
+                    
+                    noRegistrationButton
+                    musicianRegistrationButton
+                }
+                .padding(.top, 197)
             }
-            .padding(.top, 197)
-        }
-        .opacity(didFinishLaunch ? 1 : 0)
-        .onAppear {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-                launchScreenManager.dismiss()
-            }
-            
-            DispatchQueue.main.asyncAfter(deadline: .now() + 4.1) {
-                withAnimation(.easeInOut(duration: 0.45)) {
-                    didFinishLaunch.toggle()
+            .opacity(didFinishLaunch ? 1 : 0)
+            .onAppear {
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                    launchScreenManager.dismiss()
+                }
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 4.1) {
+                    withAnimation(.easeInOut(duration: 0.45)) {
+                        didFinishLaunch.toggle()
+                    }
                 }
             }
         }
     }
-    
 }
 
 private extension OnboardingView {
@@ -76,7 +84,6 @@ private extension OnboardingView {
     }
     
     var blurCircle: some View {
-        
         Circle()
             .padding(.top, 195)
             .padding(.leading, 25)
@@ -86,40 +93,41 @@ private extension OnboardingView {
     }
     
     var noRegistrationButton: some View {
-        
-        Button {
-            print("Here")
-                
-            } label: {
-                Text("noRegistrationButtonText".localized)
-                    .fontWeight(.bold)
-                    .frame(width: 230, height: 60)
-                    .foregroundColor(ConexxaColor.black())
-                    .background(ConexxaColor.green())
-                    .cornerRadius(10)
-            }
+        NavigationLink() {
+            TabBar(needsToDismissLaunchScreen: false)
+        } label: {
+            Text("noRegistrationButtonText".localized)
+                .fontWeight(.bold)
+                .frame(width: 230, height: 60)
+                .foregroundColor(ConexxaColor.black())
+                .background(ConexxaColor.green())
+                .cornerRadius(10)
+        }
+        .simultaneousGesture(TapGesture().onEnded({
+            viewModel.didSeeOnboardingWithSelectedOption(option: Constants.APP_GUEST_MODE)
+        }))
     }
     
     var musicianRegistrationButton: some View {
-        
         Button {
+            
             print("Here")
-                
-            } label: {
-                Text("musicianRegisterButtonText".localized)
-                    .fontWeight(.bold)
-                    .frame(width: 230, height: 60)
-                    .foregroundColor(ConexxaColor.green())
-                    .background(ConexxaColor.blue())
-                    .cornerRadius(10)
-            }
-            .padding(.top, 25)
+            
+        } label: {
+            Text("musicianRegisterButtonText".localized)
+                .fontWeight(.bold)
+                .frame(width: 230, height: 60)
+                .foregroundColor(ConexxaColor.green())
+                .background(ConexxaColor.blue())
+                .cornerRadius(10)
+        }
+        .padding(.top, 25)
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        OnboardingView(viewModel: OnboardingViewModel(appStorage: Storage(), router: OnboardingBuilder()))
+        OnboardingView(viewModel: OnboardingViewModel(appStorage: Storage()))
             .environmentObject(LaunchScreenManager())
     }
 }

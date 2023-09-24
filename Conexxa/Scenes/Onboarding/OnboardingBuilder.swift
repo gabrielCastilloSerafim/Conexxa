@@ -9,13 +9,8 @@ import SwiftUI
 
 class OnboardingBuilder {
     
-    static func buildView(
-        onboardingViewModel: OnboardingViewModel = OnboardingViewModel(
-            appStorage: Storage(),
-            router: OnboardingBuilder())) -> some View {
+    static func buildView(onboardingViewModel: OnboardingViewModel = OnboardingViewModel(appStorage: Storage())) -> some View {
         
         OnboardingView(viewModel: onboardingViewModel)
     }
-    
-    
 }

@@ -27,6 +27,20 @@
 		FF893FE32AB753C9005A87B7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF893FE22AB753C9005A87B7 /* LaunchScreen.storyboard */; };
 		FF893FE62AB7553F005A87B7 /* LaunchScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF893FE52AB7553F005A87B7 /* LaunchScreenView.swift */; };
 		FF893FE82AB75D63005A87B7 /* LaunchScreenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF893FE72AB75D63005A87B7 /* LaunchScreenManager.swift */; };
+		FFC1C60F2AC0551300A91EF6 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC1C60E2AC0551300A91EF6 /* TabBar.swift */; };
+		FFC1C6122AC0578E00A91EF6 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC1C6112AC0578E00A91EF6 /* HomeView.swift */; };
+		FFC1C6142AC057C800A91EF6 /* HomeBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC1C6132AC057C800A91EF6 /* HomeBuilder.swift */; };
+		FFC1C6162AC059AE00A91EF6 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC1C6152AC059AE00A91EF6 /* HomeViewModel.swift */; };
+		FFC1C6192AC05BB900A91EF6 /* SchedulesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC1C6182AC05BB900A91EF6 /* SchedulesView.swift */; };
+		FFC1C61B2AC05BD100A91EF6 /* SchedulesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC1C61A2AC05BD100A91EF6 /* SchedulesViewModel.swift */; };
+		FFC1C61D2AC05C0F00A91EF6 /* SchedulesBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC1C61C2AC05C0F00A91EF6 /* SchedulesBuilder.swift */; };
+		FFC1C6202AC05CF100A91EF6 /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC1C61F2AC05CF100A91EF6 /* FavoritesView.swift */; };
+		FFC1C6222AC05D1400A91EF6 /* FavoritesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC1C6212AC05D1400A91EF6 /* FavoritesViewModel.swift */; };
+		FFC1C6242AC05E2F00A91EF6 /* FavoritesBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC1C6232AC05E2F00A91EF6 /* FavoritesBuilder.swift */; };
+		FFC1C6292AC05F8700A91EF6 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC1C6282AC05F8700A91EF6 /* ProfileView.swift */; };
+		FFC1C62B2AC05FB400A91EF6 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC1C62A2AC05FB400A91EF6 /* ProfileViewModel.swift */; };
+		FFC1C62D2AC05FFE00A91EF6 /* ProfileBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC1C62C2AC05FFE00A91EF6 /* ProfileBuilder.swift */; };
+		FFC1C6312AC0783300A91EF6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC1C6302AC0783300A91EF6 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +86,20 @@
 		FF893FE22AB753C9005A87B7 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FF893FE52AB7553F005A87B7 /* LaunchScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenView.swift; sourceTree = "<group>"; };
 		FF893FE72AB75D63005A87B7 /* LaunchScreenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenManager.swift; sourceTree = "<group>"; };
+		FFC1C60E2AC0551300A91EF6 /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
+		FFC1C6112AC0578E00A91EF6 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		FFC1C6132AC057C800A91EF6 /* HomeBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBuilder.swift; sourceTree = "<group>"; };
+		FFC1C6152AC059AE00A91EF6 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		FFC1C6182AC05BB900A91EF6 /* SchedulesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchedulesView.swift; sourceTree = "<group>"; };
+		FFC1C61A2AC05BD100A91EF6 /* SchedulesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchedulesViewModel.swift; sourceTree = "<group>"; };
+		FFC1C61C2AC05C0F00A91EF6 /* SchedulesBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchedulesBuilder.swift; sourceTree = "<group>"; };
+		FFC1C61F2AC05CF100A91EF6 /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
+		FFC1C6212AC05D1400A91EF6 /* FavoritesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewModel.swift; sourceTree = "<group>"; };
+		FFC1C6232AC05E2F00A91EF6 /* FavoritesBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesBuilder.swift; sourceTree = "<group>"; };
+		FFC1C6282AC05F8700A91EF6 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		FFC1C62A2AC05FB400A91EF6 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		FFC1C62C2AC05FFE00A91EF6 /* ProfileBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileBuilder.swift; sourceTree = "<group>"; };
+		FFC1C6302AC0783300A91EF6 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,8 +199,13 @@
 		FF893FC22AB25EB2005A87B7 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				FFC1C60B2AC054E500A91EF6 /* TabView */,
 				FF893FE42AB75527005A87B7 /* LaunchScreen */,
 				FF893FD72AB582B4005A87B7 /* Onboarding */,
+				FFC1C6102AC0577B00A91EF6 /* Home */,
+				FFC1C6172AC05B6F00A91EF6 /* Schedules */,
+				FFC1C61E2AC05CD400A91EF6 /* Favorites */,
+				FFC1C6252AC05F5300A91EF6 /* Profile */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -180,6 +213,7 @@
 		FF893FCA2AB2612D005A87B7 /* AppUtils */ = {
 			isa = PBXGroup;
 			children = (
+				FFC1C6322AC0851900A91EF6 /* Constants */,
 				FF893FDC2AB73E28005A87B7 /* Designables */,
 				FF893FD02AB57D36005A87B7 /* UserDefaultsAbstractionLayer */,
 				FF893FCD2AB2626E005A87B7 /* FoundationExtensions */,
@@ -232,6 +266,62 @@
 				FF893FE72AB75D63005A87B7 /* LaunchScreenManager.swift */,
 			);
 			path = LaunchScreen;
+			sourceTree = "<group>";
+		};
+		FFC1C60B2AC054E500A91EF6 /* TabView */ = {
+			isa = PBXGroup;
+			children = (
+				FFC1C60E2AC0551300A91EF6 /* TabBar.swift */,
+			);
+			path = TabView;
+			sourceTree = "<group>";
+		};
+		FFC1C6102AC0577B00A91EF6 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				FFC1C6112AC0578E00A91EF6 /* HomeView.swift */,
+				FFC1C6152AC059AE00A91EF6 /* HomeViewModel.swift */,
+				FFC1C6132AC057C800A91EF6 /* HomeBuilder.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		FFC1C6172AC05B6F00A91EF6 /* Schedules */ = {
+			isa = PBXGroup;
+			children = (
+				FFC1C6182AC05BB900A91EF6 /* SchedulesView.swift */,
+				FFC1C61A2AC05BD100A91EF6 /* SchedulesViewModel.swift */,
+				FFC1C61C2AC05C0F00A91EF6 /* SchedulesBuilder.swift */,
+			);
+			path = Schedules;
+			sourceTree = "<group>";
+		};
+		FFC1C61E2AC05CD400A91EF6 /* Favorites */ = {
+			isa = PBXGroup;
+			children = (
+				FFC1C61F2AC05CF100A91EF6 /* FavoritesView.swift */,
+				FFC1C6212AC05D1400A91EF6 /* FavoritesViewModel.swift */,
+				FFC1C6232AC05E2F00A91EF6 /* FavoritesBuilder.swift */,
+			);
+			path = Favorites;
+			sourceTree = "<group>";
+		};
+		FFC1C6252AC05F5300A91EF6 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				FFC1C6282AC05F8700A91EF6 /* ProfileView.swift */,
+				FFC1C62A2AC05FB400A91EF6 /* ProfileViewModel.swift */,
+				FFC1C62C2AC05FFE00A91EF6 /* ProfileBuilder.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		FFC1C6322AC0851900A91EF6 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				FFC1C6302AC0783300A91EF6 /* Constants.swift */,
+			);
+			path = Constants;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -366,19 +456,33 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FFC1C6162AC059AE00A91EF6 /* HomeViewModel.swift in Sources */,
 				FF5E81782AAE36CC002E6E1B /* OnboardingView.swift in Sources */,
 				FF893FCF2AB26291005A87B7 /* DataExtensions.swift in Sources */,
 				FF893FE82AB75D63005A87B7 /* LaunchScreenManager.swift in Sources */,
+				FFC1C6122AC0578E00A91EF6 /* HomeView.swift in Sources */,
+				FFC1C6192AC05BB900A91EF6 /* SchedulesView.swift in Sources */,
 				FF5E81762AAE36CC002E6E1B /* ConexxaApp.swift in Sources */,
+				FFC1C60F2AC0551300A91EF6 /* TabBar.swift in Sources */,
 				FF893FD92AB582E5005A87B7 /* OnboardingViewModel.swift in Sources */,
 				FF893FDE2AB73E40005A87B7 /* ConexxaColor.swift in Sources */,
 				FF893FCC2AB26189005A87B7 /* StringExtension.swift in Sources */,
+				FFC1C62D2AC05FFE00A91EF6 /* ProfileBuilder.swift in Sources */,
+				FFC1C6202AC05CF100A91EF6 /* FavoritesView.swift in Sources */,
+				FFC1C6222AC05D1400A91EF6 /* FavoritesViewModel.swift in Sources */,
 				FF893FD22AB57EE2005A87B7 /* Storage.swift in Sources */,
+				FFC1C62B2AC05FB400A91EF6 /* ProfileViewModel.swift in Sources */,
+				FFC1C61D2AC05C0F00A91EF6 /* SchedulesBuilder.swift in Sources */,
 				FF893FD62AB57F28005A87B7 /* UserDefaultsObservation.swift in Sources */,
+				FFC1C6292AC05F8700A91EF6 /* ProfileView.swift in Sources */,
+				FFC1C61B2AC05BD100A91EF6 /* SchedulesViewModel.swift in Sources */,
 				FF893FDB2AB58460005A87B7 /* OnboardingBuilder.swift in Sources */,
+				FFC1C6142AC057C800A91EF6 /* HomeBuilder.swift in Sources */,
 				FF893FE02AB73E65005A87B7 /* ColorExtension.swift in Sources */,
 				FF893FD42AB57F07005A87B7 /* UserDefaultsPropertyWrapper.swift in Sources */,
 				FF893FE62AB7553F005A87B7 /* LaunchScreenView.swift in Sources */,
+				FFC1C6242AC05E2F00A91EF6 /* FavoritesBuilder.swift in Sources */,
+				FFC1C6312AC0783300A91EF6 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

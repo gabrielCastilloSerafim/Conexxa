@@ -62,7 +62,6 @@ private extension LaunchScreenView {
             .resizable()
             .aspectRatio(contentMode: .fit)
             .frame(width: 240, height: 128)
-            .padding(.bottom, 12)
             .scaleEffect(firstPhaseIsAnimating ? 0.87 : 1)
             .scaleEffect(secondPhaseIsAnimating ? UIScreen.main.bounds.size.height/4 : 1)
             .opacity(secondPhaseIsAnimating ? 0 : 1)
