@@ -39,6 +39,7 @@ struct HomeView: View {
             
             vm.getBestRankedBands()
         }
+        .navigationBarHidden(true)
     }
 }
 
