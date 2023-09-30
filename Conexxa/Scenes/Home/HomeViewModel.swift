@@ -12,6 +12,11 @@ class HomeViewModel: ObservableObject {
     let impactFeedbackGenerator = UIImpactFeedbackGenerator(style: .medium)
     @Published var bestRankedBands: [Band] = []
     @Published var selectedArtistStyle: ArtistStyle = .band
+    @Published var selectedWorkArea: WorkAreas = .zonaNorte
+    @Published var selectedDayPeriod: DayPeriod = .night
+    @Published var selectedMusicalStyle: MusicalStyle = .rock
+    @Published var selectedDate: Date = Date.now
+    @Published var region: String = ""
     
     func getBestRankedBands() {
         

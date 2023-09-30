@@ -52,7 +52,7 @@ struct LaunchScreenView: View {
 private extension LaunchScreenView {
     
     var backGround: some View {
-        ConexxaColor.white()
+        ConexxaColor.dirtyWhite()
             .ignoresSafeArea(.all)
             .opacity(secondPhaseIsAnimating ? 0 : 1)
     }

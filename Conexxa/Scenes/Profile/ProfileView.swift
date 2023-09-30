@@ -23,7 +23,7 @@ struct ProfileView: View {
 private extension ProfileView {
     
     var backGround: some View {
-        ConexxaColor.white()
+        ConexxaColor.dirtyWhite()
             .ignoresSafeArea(.all)
     }
 }

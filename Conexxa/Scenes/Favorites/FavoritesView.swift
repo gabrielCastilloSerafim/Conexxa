@@ -23,7 +23,7 @@ struct FavoritesView: View {
 private extension FavoritesView {
     
     var backGround: some View {
-        ConexxaColor.white()
+        ConexxaColor.dirtyWhite()
             .ignoresSafeArea(.all)
     }
 }

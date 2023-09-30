@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FF3BAE5A2AC7833D005A832E /* GlassView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3BAE592AC7833D005A832E /* GlassView.swift */; };
 		FF5E81762AAE36CC002E6E1B /* ConexxaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5E81752AAE36CC002E6E1B /* ConexxaApp.swift */; };
 		FF5E81782AAE36CC002E6E1B /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5E81772AAE36CC002E6E1B /* OnboardingView.swift */; };
 		FF5E817A2AAE36CD002E6E1B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF5E81792AAE36CD002E6E1B /* Assets.xcassets */; };
@@ -57,6 +58,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FF3BAE592AC7833D005A832E /* GlassView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlassView.swift; sourceTree = "<group>"; };
 		FF5E81722AAE36CC002E6E1B /* Conexxa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Conexxa.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF5E81752AAE36CC002E6E1B /* ConexxaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConexxaApp.swift; sourceTree = "<group>"; };
 		FF5E81772AAE36CC002E6E1B /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
@@ -246,6 +248,7 @@
 			isa = PBXGroup;
 			children = (
 				FF893FDD2AB73E40005A87B7 /* ConexxaColor.swift */,
+				FF3BAE592AC7833D005A832E /* GlassView.swift */,
 			);
 			path = Designables;
 			sourceTree = "<group>";
@@ -459,6 +462,7 @@
 				FFC1C6222AC05D1400A91EF6 /* FavoritesViewModel.swift in Sources */,
 				FF893FD22AB57EE2005A87B7 /* Storage.swift in Sources */,
 				FFC1C62B2AC05FB400A91EF6 /* ProfileViewModel.swift in Sources */,
+				FF3BAE5A2AC7833D005A832E /* GlassView.swift in Sources */,
 				FF893FD62AB57F28005A87B7 /* UserDefaultsObservation.swift in Sources */,
 				FFC1C6292AC05F8700A91EF6 /* ProfileView.swift in Sources */,
 				FFC1C61B2AC05BD100A91EF6 /* SchedulesViewModel.swift in Sources */,

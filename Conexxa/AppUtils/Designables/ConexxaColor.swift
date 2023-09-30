@@ -9,8 +9,13 @@ import SwiftUI
 
 struct ConexxaColor {
     
-    /// Hex: #F2F2F2
+    /// Hex: #ffffff
     static func white() -> Color {
+        Color(hex: "#ffffff")
+    }
+    
+    /// Hex: #F2F2F2
+    static func dirtyWhite() -> Color {
         Color(hex: "#F2F2F2")
     }
     

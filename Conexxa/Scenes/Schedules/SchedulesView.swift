@@ -23,7 +23,7 @@ struct SchedulesView: View {
 private extension SchedulesView {
     
     var backGround: some View {
-        ConexxaColor.white()
+        ConexxaColor.dirtyWhite()
             .ignoresSafeArea(.all)
     }
 }

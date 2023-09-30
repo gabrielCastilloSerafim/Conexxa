@@ -6,9 +6,23 @@
   
 */
 
+// Miscellaneous
 "slogan" = "Vivencie a melhor experiência";
 "noRegistrationButtonText" = "Entrar sem cadastro";
 "musicianRegisterButtonText" = "Cadastrar como músico";
+"band" = "Banda";
+"musician" = "Músico";
+"dj" = "DJ";
+"bestRanked" = "Mais bem ranqueados:";
+"bands" = "Bandas";
+"region" = "Região";
+"musicStyle" = "Estilo musical";
+"period" = "Período";
+"date" = "Data";
+"select" = "Selecionar:";
+"search" = "Buscar";
+
+// Tabs
 "home" = "Home";
 "schedule" = "Agendamentos";
 "favorites" = "Favoritos";

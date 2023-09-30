@@ -21,3 +21,28 @@ enum ArtistStyle {
     case musician
     case dj
 }
+
+enum WorkAreas: String, CaseIterable {
+    
+    case zonaSul = "São Paulo, Zona Sul"
+    case zonaLeste = "São Paulo, Zona Leste"
+    case zonaOeste = "São Paulo, Zona Oeste"
+    case zonaNorte = "São Paulo, Zona Norte"
+}
+
+enum DayPeriod: String, CaseIterable {
+    
+    case morning = "Manhã"
+    case afternoon = "Tarde"
+    case night = "Noite"
+}
+
+enum MusicalStyle: String, CaseIterable {
+    
+    case rock = "Rock"
+    case electronic = "Electronica"
+    case samba = "Samba"
+    case sertanejo = "Sertanejo"
+    case pop = "Pop"
+    case funk = "Funk"
+}

@@ -59,7 +59,7 @@ struct OnboardingView: View {
 private extension OnboardingView {
     
     var backgroundColor: some View {
-        ConexxaColor.white()
+        ConexxaColor.dirtyWhite()
             .ignoresSafeArea(.all)
     }
     
