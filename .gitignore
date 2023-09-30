@@ -1,2 +1,6 @@
 
 fastlane/report.xml
+
+build/ios/Conexxa.app.dSYM.zip
+
+build/ios/Conexxa.ipa
