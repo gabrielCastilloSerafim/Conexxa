@@ -21,9 +21,22 @@
 "date" = "Data";
 "select" = "Selecionar:";
 "search" = "Buscar";
+"filters" = "Filtros";
+"remove" = "Remover";
+"apply" = "Aplicar";
+"cheapest" = "Mais Barato";
+"bestRating" = "Melhor avaliação";
+"bandName" = "Nome da banda";
+"filters" = "Filtros";
+"results" = "Resultados";
+"seeDetails" = "Ver detalhes";
+"contract" = "Contratar";
 
 // Tabs
 "home" = "Home";
 "schedule" = "Agendamentos";
 "favorites" = "Favoritos";
 "profile" = "Perfil";
+
+// Currency
+"currencySymbol" = "R$";

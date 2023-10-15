@@ -5,14 +5,26 @@
 //  Created by Gabriel Castillo Serafim on 24/9/23.
 //
 
-import Foundation
+import SwiftUI
 
 struct Band: Identifiable {
     
     let id = UUID()
     let name: String
     let rating: Int
-    let image: String
+    let bandImages: [bandImage]
+    let description: String
+    let artistStyle: ArtistStyle?
+    let musicalStyles: [MusicalStyle]
+    let price: String
+    let workAreas: [WorkAreas]?
+    let dayPeriods: [DayPeriod]?
+}
+
+struct bandImage: Identifiable {
+    
+    let id = UUID()
+    let image: Image
 }
 
 enum ArtistStyle {
@@ -45,4 +57,5 @@ enum MusicalStyle: String, CaseIterable {
     case sertanejo = "Sertanejo"
     case pop = "Pop"
     case funk = "Funk"
+    case blues = "Blues"
 }

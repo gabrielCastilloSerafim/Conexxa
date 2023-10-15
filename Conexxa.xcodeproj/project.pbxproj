@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FF03FCB82ADC528B006072D8 /* Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF03FCB72ADC528B006072D8 /* Navigation.swift */; };
+		FF03FCBE2ADC535A006072D8 /* BandDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF03FCBD2ADC535A006072D8 /* BandDetailsView.swift */; };
+		FF2634462AC95D7900656145 /* BandsListingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2634452AC95D7900656145 /* BandsListingView.swift */; };
+		FF2634482AC95D8F00656145 /* BandsListingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2634472AC95D8F00656145 /* BandsListingViewModel.swift */; };
+		FF26344C2AC95DA000656145 /* BandsListingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF26344B2AC95DA000656145 /* BandsListingModel.swift */; };
+		FF26344E2AC97BA500656145 /* FilterSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF26344D2AC97BA500656145 /* FilterSelectionView.swift */; };
 		FF3BAE5A2AC7833D005A832E /* GlassView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3BAE592AC7833D005A832E /* GlassView.swift */; };
 		FF5E81762AAE36CC002E6E1B /* ConexxaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5E81752AAE36CC002E6E1B /* ConexxaApp.swift */; };
 		FF5E81782AAE36CC002E6E1B /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5E81772AAE36CC002E6E1B /* OnboardingView.swift */; };
@@ -38,6 +44,7 @@
 		FFC1C62B2AC05FB400A91EF6 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC1C62A2AC05FB400A91EF6 /* ProfileViewModel.swift */; };
 		FFC1C6312AC0783300A91EF6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC1C6302AC0783300A91EF6 /* Constants.swift */; };
 		FFC1C6342AC0A09C00A91EF6 /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC1C6332AC0A09C00A91EF6 /* HomeModel.swift */; };
+		FFE906A92AD7EF8200AEC33B /* BandCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE906A82AD7EF8200AEC33B /* BandCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +65,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FF03FCB72ADC528B006072D8 /* Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigation.swift; sourceTree = "<group>"; };
+		FF03FCBD2ADC535A006072D8 /* BandDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BandDetailsView.swift; sourceTree = "<group>"; };
+		FF2634452AC95D7900656145 /* BandsListingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BandsListingView.swift; sourceTree = "<group>"; };
+		FF2634472AC95D8F00656145 /* BandsListingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BandsListingViewModel.swift; sourceTree = "<group>"; };
+		FF26344B2AC95DA000656145 /* BandsListingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BandsListingModel.swift; sourceTree = "<group>"; };
+		FF26344D2AC97BA500656145 /* FilterSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterSelectionView.swift; sourceTree = "<group>"; };
 		FF3BAE592AC7833D005A832E /* GlassView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlassView.swift; sourceTree = "<group>"; };
 		FF5E81722AAE36CC002E6E1B /* Conexxa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Conexxa.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF5E81752AAE36CC002E6E1B /* ConexxaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConexxaApp.swift; sourceTree = "<group>"; };
@@ -94,6 +107,7 @@
 		FFC1C62A2AC05FB400A91EF6 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		FFC1C6302AC0783300A91EF6 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		FFC1C6332AC0A09C00A91EF6 /* HomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModel.swift; sourceTree = "<group>"; };
+		FFE906A82AD7EF8200AEC33B /* BandCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BandCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +135,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FF03FCB92ADC529B006072D8 /* GenericProtocols */ = {
+			isa = PBXGroup;
+			children = (
+				FF03FCB72ADC528B006072D8 /* Navigation.swift */,
+			);
+			path = GenericProtocols;
+			sourceTree = "<group>";
+		};
+		FF03FCBA2ADC5324006072D8 /* BandDetails */ = {
+			isa = PBXGroup;
+			children = (
+				FF03FCBD2ADC535A006072D8 /* BandDetailsView.swift */,
+			);
+			path = BandDetails;
+			sourceTree = "<group>";
+		};
+		FF03FCBF2ADC568F006072D8 /* FilterSelection */ = {
+			isa = PBXGroup;
+			children = (
+				FF26344D2AC97BA500656145 /* FilterSelectionView.swift */,
+			);
+			path = FilterSelection;
+			sourceTree = "<group>";
+		};
+		FF2634442AC95D4A00656145 /* BandsListing */ = {
+			isa = PBXGroup;
+			children = (
+				FF2634452AC95D7900656145 /* BandsListingView.swift */,
+				FF2634472AC95D8F00656145 /* BandsListingViewModel.swift */,
+				FF26344B2AC95DA000656145 /* BandsListingModel.swift */,
+			);
+			path = BandsListing;
+			sourceTree = "<group>";
+		};
 		FF5E81692AAE36CC002E6E1B = {
 			isa = PBXGroup;
 			children = (
@@ -147,6 +195,7 @@
 				FF893FE12AB75090005A87B7 /* Info.plist */,
 				FF893FC12AB25E72005A87B7 /* AppDomain */,
 				FF893FC22AB25EB2005A87B7 /* Scenes */,
+				FFE906A72AD7EF4B00AEC33B /* CommonViews */,
 				FF893FCA2AB2612D005A87B7 /* AppUtils */,
 				FF5E817B2AAE36CD002E6E1B /* Preview Content */,
 			);
@@ -197,6 +246,9 @@
 				FF893FE42AB75527005A87B7 /* LaunchScreen */,
 				FF893FD72AB582B4005A87B7 /* Onboarding */,
 				FFC1C6102AC0577B00A91EF6 /* Home */,
+				FF2634442AC95D4A00656145 /* BandsListing */,
+				FF03FCBF2ADC568F006072D8 /* FilterSelection */,
+				FF03FCBA2ADC5324006072D8 /* BandDetails */,
 				FFC1C6172AC05B6F00A91EF6 /* Schedules */,
 				FFC1C61E2AC05CD400A91EF6 /* Favorites */,
 				FFC1C6252AC05F5300A91EF6 /* Profile */,
@@ -211,6 +263,7 @@
 				FF893FDC2AB73E28005A87B7 /* Designables */,
 				FF893FD02AB57D36005A87B7 /* UserDefaultsAbstractionLayer */,
 				FF893FCD2AB2626E005A87B7 /* FoundationExtensions */,
+				FF03FCB92ADC529B006072D8 /* GenericProtocols */,
 			);
 			path = AppUtils;
 			sourceTree = "<group>";
@@ -313,6 +366,14 @@
 				FFC1C6302AC0783300A91EF6 /* Constants.swift */,
 			);
 			path = Constants;
+			sourceTree = "<group>";
+		};
+		FFE906A72AD7EF4B00AEC33B /* CommonViews */ = {
+			isa = PBXGroup;
+			children = (
+				FFE906A82AD7EF8200AEC33B /* BandCell.swift */,
+			);
+			path = CommonViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -453,13 +514,18 @@
 				FF893FE82AB75D63005A87B7 /* LaunchScreenManager.swift in Sources */,
 				FFC1C6122AC0578E00A91EF6 /* HomeView.swift in Sources */,
 				FFC1C6192AC05BB900A91EF6 /* SchedulesView.swift in Sources */,
+				FFE906A92AD7EF8200AEC33B /* BandCell.swift in Sources */,
+				FF2634482AC95D8F00656145 /* BandsListingViewModel.swift in Sources */,
 				FF5E81762AAE36CC002E6E1B /* ConexxaApp.swift in Sources */,
 				FFC1C60F2AC0551300A91EF6 /* TabBar.swift in Sources */,
 				FF893FD92AB582E5005A87B7 /* OnboardingViewModel.swift in Sources */,
 				FF893FDE2AB73E40005A87B7 /* ConexxaColor.swift in Sources */,
 				FF893FCC2AB26189005A87B7 /* StringExtension.swift in Sources */,
+				FF03FCBE2ADC535A006072D8 /* BandDetailsView.swift in Sources */,
+				FF2634462AC95D7900656145 /* BandsListingView.swift in Sources */,
 				FFC1C6202AC05CF100A91EF6 /* FavoritesView.swift in Sources */,
 				FFC1C6222AC05D1400A91EF6 /* FavoritesViewModel.swift in Sources */,
+				FF26344E2AC97BA500656145 /* FilterSelectionView.swift in Sources */,
 				FF893FD22AB57EE2005A87B7 /* Storage.swift in Sources */,
 				FFC1C62B2AC05FB400A91EF6 /* ProfileViewModel.swift in Sources */,
 				FF3BAE5A2AC7833D005A832E /* GlassView.swift in Sources */,
@@ -467,6 +533,8 @@
 				FFC1C6292AC05F8700A91EF6 /* ProfileView.swift in Sources */,
 				FFC1C61B2AC05BD100A91EF6 /* SchedulesViewModel.swift in Sources */,
 				FF893FE02AB73E65005A87B7 /* ColorExtension.swift in Sources */,
+				FF26344C2AC95DA000656145 /* BandsListingModel.swift in Sources */,
+				FF03FCB82ADC528B006072D8 /* Navigation.swift in Sources */,
 				FF893FD42AB57F07005A87B7 /* UserDefaultsPropertyWrapper.swift in Sources */,
 				FF893FE62AB7553F005A87B7 /* LaunchScreenView.swift in Sources */,
 				FFC1C6312AC0783300A91EF6 /* Constants.swift in Sources */,

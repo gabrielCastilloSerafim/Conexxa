@@ -13,33 +13,46 @@ struct HomeView: View {
     
     var body: some View {
         
-        ZStack {
+        NavigationStack {
             
-            backGround
-            
-            VStack(spacing: 0) {
+            ZStack {
                 
-                conexxaHeader
-                Divider()
+                backGround
                 
-                ScrollView {
+                VStack(spacing: 0) {
                     
-                    completeQueryView
+                    conexxaHeader
+                    Divider()
                     
-                    bestRankedText
-                    
-                    bestRatedBandsList
+                    ScrollView {
+                        
+                        completeQueryView
+                        bestRankedText
+                        bestRatedBandsList
+                    }
+                    .scrollIndicators(.hidden)
                 }
-                .scrollIndicators(.hidden)
+                .padding(.leading, 10)
+                .padding(.trailing, 10)
+                
             }
-            .padding(.leading, 10)
-            .padding(.trailing, 10)
-            
-        }.onAppear {
-            
-            vm.getBestRankedBands()
+            .onAppear {
+                
+                vm.getBestRankedBands()
+            }
+            .navigationBarHidden(true)
+            .navigationDestination(for: NavigationDestinations.self) { destination in
+                
+                switch destination {
+                    
+                case .bandsListing:
+                    BandsListingView(selectedQueryData: vm.getSelectedQueryData())
+                    
+                case .bandDetails:
+                    BandDetailsView()
+                }
+            }
         }
-        .navigationBarHidden(true)
     }
 }
 
@@ -47,7 +60,14 @@ private extension HomeView {
     
     // MARK: UIProperties
     
+    enum NavigationDestinations: Navigation {
+        
+        case bandsListing
+        case bandDetails
+    }
+    
     var backGround: some View {
+        
         ConexxaColor.dirtyWhite()
             .ignoresSafeArea(.all)
     }
@@ -119,33 +139,13 @@ private extension HomeView {
     
     var bestRatedBandsList: some View {
         
-        ForEach(vm.bestRankedBands, id: \.id) { band in
-            
-            ZStack {
+        LazyVStack {
+            ForEach(vm.bestRankedBands, id: \.id) { band in
                 
-                VStack {
-                    
-                    HStack {
-                        
-                        Text(band.name)
-                            .font(.system(size: 21, weight: .semibold))
-                        Spacer()
-                        getStarsRating(rating: 4)
-                    }
-                    .padding(15)
-                    
-                    Image("bandImage")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .cornerRadius(20)
-                        .shadow(radius: 3)
-                        .padding(.top, 0)
-                        .padding(.leading, 15)
-                        .padding(.trailing, 15)
-                        .padding(.bottom, 15)
-                }
+                BandCell(
+                    band: band,
+                    navigationLink: NavigationDestinations.bandDetails)
             }
-            .glass(cornerRadius: 20)
         }
     }
     
@@ -194,16 +194,18 @@ private extension HomeView {
     
     var bestRankedText: some View {
         
-        HStack {
-            
-            Text("bestRanked".localized)
-                .font(.system(size: 25, weight: .bold))
-                .foregroundStyle(ConexxaColor.black())
-                .padding(.top, 20)
-                .padding(.bottom, 20)
-                .shadow(radius: 10)
-            
-            Spacer()
+        VStack(spacing: 0) {
+            HStack {
+                
+                Text("bestRanked".localized)
+                    .font(.system(size: 25, weight: .bold))
+                    .padding(.top, 20)
+                
+                Spacer()
+            }
+            Divider()
+                .padding(.bottom, 10)
+                .padding(.top, 10)
         }
     }
     
@@ -342,6 +344,7 @@ private extension HomeView {
                             Text("select".localized)
                         }
                         .datePickerStyle(.compact)
+                        .foregroundStyle(ConexxaColor.purple())
                         
                         Spacer()
                     }
@@ -352,9 +355,7 @@ private extension HomeView {
                 
                 Spacer()
                 
-                Button {
-                    print("Here")
-                } label: {
+                NavigationLink(value: NavigationDestinations.bandsListing) {
                     Text("search".localized)
                         .font(.system(size: 19, weight: .semibold))
                         .padding(.horizontal, 52)
@@ -371,23 +372,8 @@ private extension HomeView {
         }
         .padding(.top, 10)
     }
-    
-    // MARK: Methods
-    
-    func getStarsRating(rating: Int) -> some View {
-        
-        HStack(spacing: 2) {
-            ForEach(0..<rating, id: \.self) { index in
-                
-                Image(systemName: "star.fill")
-                    .foregroundColor(.yellow)
-            }
-        }
-    }
 }
 
-struct HomeView_Previews: PreviewProvider {
-    static var previews: some View {
-        HomeView()
-    }
+#Preview {
+    HomeView()
 }

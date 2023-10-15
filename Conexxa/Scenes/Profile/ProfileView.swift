@@ -13,9 +13,13 @@ struct ProfileView: View {
     
     var body: some View {
         
-        ZStack {
+        NavigationStack {
             
-            backGround
+            ZStack {
+                
+                backGround
+            }
+            .navigationTitle("profile".localized)
         }
     }
 }
@@ -28,8 +32,6 @@ private extension ProfileView {
     }
 }
 
-struct ProfileView_Previews: PreviewProvider {
-    static var previews: some View {
-        ProfileView()
-    }
+#Preview {
+    ProfileView()
 }

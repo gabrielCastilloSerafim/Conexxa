@@ -1,23 +1,41 @@
 //
-//  HomeViewModel.swift
+//  BandsListingViewModel.swift
 //  Conexxa
 //
-//  Created by Gabriel Castillo Serafim on 24/9/23.
+//  Created by Gabriel Castillo Serafim on 1/10/23.
 //
 
 import SwiftUI
 
-class HomeViewModel: ObservableObject {
+class BandsListingViewModel: ObservableObject {
     
-    let impactFeedbackGenerator = UIImpactFeedbackGenerator(style: .medium)
-    @Published var bestRankedBands: [Band] = []
-    @Published var selectedArtistStyle: ArtistStyle = .band
-    @Published var selectedWorkArea: WorkAreas = .zonaNorte
-    @Published var selectedDayPeriod: DayPeriod = .night
-    @Published var selectedMusicalStyle: MusicalStyle = .rock
-    @Published var selectedDate: Date = Date.now
+    @Published var searchText: String = ""
+    @Published var isFilterScreenPresented: Bool = false
+    @Published var selectedFilters: [BandsListingFilters] = []
+    @Published var bandsList: [Band] = []
     
-    func getBestRankedBands() {
+    var selectedFilterText: String {
+        
+        if selectedFilters.isEmpty {
+            return BandsListingFilters.noFilter.rawValue
+        }
+        
+        if selectedFilters.count > 1 {
+            return "Vários"
+        }
+        
+        if selectedFilters.count == 1 && selectedFilters.contains(where: { $0 == .bestRanking }) {
+            return BandsListingFilters.bestRanking.rawValue
+        }
+        
+        if selectedFilters.count == 1 && selectedFilters.contains(where: { $0 == .cheaper }) {
+            return BandsListingFilters.cheaper.rawValue
+        }
+        
+        return ""
+    }
+    
+    func getBands() {
         
         let mockBandsArray = [
             Band(
@@ -81,22 +99,6 @@ class HomeViewModel: ObservableObject {
                 dayPeriods: nil)
         ]
         
-        bestRankedBands.append(contentsOf: mockBandsArray)
-    }
-    
-    func didChangeArtistStyle(_ artistStyle: ArtistStyle) {
-        
-        selectedArtistStyle = artistStyle
-        impactFeedbackGenerator.impactOccurred()
-    }
-    
-    func getSelectedQueryData() -> SelectedBandQueryData {
-        
-        SelectedBandQueryData(
-            artistStyle: selectedArtistStyle,
-            workArea: selectedWorkArea,
-            dayPeriod: selectedDayPeriod,
-            musicalStyle: selectedMusicalStyle, 
-            date: selectedDate)
+        bandsList.append(contentsOf: mockBandsArray)
     }
 }

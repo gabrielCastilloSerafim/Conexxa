@@ -26,6 +26,7 @@ struct TabBar: View {
             favoritesRootView
             profileRootView
         }
+        .navigationBarHidden(true)
         .opacity(didFinishLaunch ? 1 : 0)
         .onAppear {
             
@@ -34,6 +35,7 @@ struct TabBar: View {
             }
             
             toggleDidFinishLaunch()
+            setupDefaultAppearence()
         }
     }
 }
@@ -44,49 +46,34 @@ private extension TabBar {
     
     var homeRootView: some View {
         
-        NavigationStack {
-            HomeView()
-        }
-        .tabItem {
-            Label("home".localized, systemImage: "house")
-        }
-        .toolbar(.hidden, for: .navigationBar)
+        HomeView()
+            .tabItem {
+                Label("home".localized, systemImage: "house")
+            }
     }
     
     var scheduleRootView: some View {
         
-        NavigationStack {
-            SchedulesView()
-                .navigationTitle("schedule".localized)
-        }
-        .tabItem {
-            Label("schedule".localized, systemImage: "calendar")
-        }
-        .toolbar(.hidden, for: .navigationBar)
+        SchedulesView()
+            .tabItem {
+                Label("schedule".localized, systemImage: "calendar")
+            }
     }
     
     var favoritesRootView: some View {
         
-        NavigationStack {
-            FavoritesView()
-                .navigationTitle("favorites".localized)
-        }
-        .tabItem {
-            Label("favorites".localized, systemImage: "heart")
-        }
-        .toolbar(.hidden, for: .navigationBar)
+        FavoritesView()
+            .tabItem {
+                Label("favorites".localized, systemImage: "heart")
+            }
     }
     
     var profileRootView: some View {
         
-        NavigationStack {
-            ProfileView()
-                .navigationTitle("profile".localized)
-        }
-        .tabItem {
-            Label("profile".localized, systemImage: "person")
-        }
-        .toolbar(.hidden, for: .navigationBar)
+        ProfileView()
+            .tabItem {
+                Label("profile".localized, systemImage: "person")
+            }
     }
     
     // MARK: Methods
@@ -108,11 +95,15 @@ private extension TabBar {
             }
         }
     }
+    
+    func setupDefaultAppearence() {
+        let tabBarAppearance = UITabBarAppearance()
+        tabBarAppearance.configureWithDefaultBackground()
+        UITabBar.appearance().scrollEdgeAppearance = tabBarAppearance
+    }
 }
 
-struct TabView_Previews: PreviewProvider {
-    static var previews: some View {
-        TabBar()
-            .environmentObject(LaunchScreenManager())
-    }
+#Preview {
+    TabBar()
+        .environmentObject(LaunchScreenManager())
 }

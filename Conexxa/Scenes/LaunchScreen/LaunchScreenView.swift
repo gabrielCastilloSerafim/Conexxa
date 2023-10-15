@@ -52,12 +52,14 @@ struct LaunchScreenView: View {
 private extension LaunchScreenView {
     
     var backGround: some View {
+        
         ConexxaColor.dirtyWhite()
             .ignoresSafeArea(.all)
             .opacity(secondPhaseIsAnimating ? 0 : 1)
     }
     
     var conexxaImage: some View {
+        
         Image("ConexxaLogoHorizontal")
             .resizable()
             .aspectRatio(contentMode: .fit)
@@ -68,9 +70,7 @@ private extension LaunchScreenView {
     }
 }
 
-struct LaunchScreenView_Previews: PreviewProvider {
-    static var previews: some View {
-        LaunchScreenView()
-            .environmentObject(LaunchScreenManager())
-    }
+#Preview {
+    LaunchScreenView()
+        .environmentObject(LaunchScreenManager())
 }

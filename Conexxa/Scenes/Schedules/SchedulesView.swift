@@ -13,9 +13,13 @@ struct SchedulesView: View {
     
     var body: some View {
         
-        ZStack {
+        NavigationStack {
             
-            backGround
+            ZStack {
+                
+                backGround
+            }
+            .navigationTitle("schedule".localized)
         }
     }
 }
@@ -28,8 +32,6 @@ private extension SchedulesView {
     }
 }
 
-struct SchedulesView_Previews: PreviewProvider {
-    static var previews: some View {
-        SchedulesView()
-    }
+#Preview {
+    SchedulesView()
 }

@@ -13,9 +13,13 @@ struct FavoritesView: View {
     
     var body: some View {
         
-        ZStack {
+        NavigationStack {
             
-            backGround
+            ZStack {
+                
+                backGround
+            }
+            .navigationTitle("favorites".localized)
         }
     }
 }
@@ -28,8 +32,6 @@ private extension FavoritesView {
     }
 }
 
-struct FavoritesView_Previews: PreviewProvider {
-    static var previews: some View {
-        FavoritesView()
-    }
+#Preview {
+    FavoritesView()
 }

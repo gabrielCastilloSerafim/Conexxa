@@ -121,9 +121,7 @@ private extension OnboardingView {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        OnboardingView()
-            .environmentObject(LaunchScreenManager())
-    }
+#Preview {
+    OnboardingView()
+        .environmentObject(LaunchScreenManager())
 }
