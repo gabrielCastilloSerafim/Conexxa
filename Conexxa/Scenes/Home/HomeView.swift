@@ -9,7 +9,11 @@ import SwiftUI
 
 struct HomeView: View {
     
-    @StateObject private var vm = HomeViewModel()
+    @StateObject private var vm: HomeViewModel
+    
+    init(networkService: NetworkServiceProtocol) {
+        _vm = StateObject(wrappedValue: HomeViewModel(networkService: networkService))
+    }
     
     var body: some View {
         
@@ -46,10 +50,12 @@ struct HomeView: View {
                 switch destination {
                     
                 case .bandsListing:
-                    BandsListingView(selectedQueryData: vm.getSelectedQueryData())
+                    BandsListingView(
+                        networkService: AppDependencies.networkService,
+                        selectedQueryData: vm.getSelectedQueryData())
                     
                 case .bandDetails:
-                    BandDetailsView()
+                    BandDetailsView(networkService: AppDependencies.networkService)
                 }
             }
         }
@@ -362,7 +368,7 @@ private extension HomeView {
                         .padding(.vertical, 10)
                         .foregroundColor(ConexxaColor.white())
                         .background(ConexxaColor.green())
-                        .cornerRadius(16)
+                        .cornerRadius(11)
                 }
                 
                 Spacer()
@@ -375,5 +381,5 @@ private extension HomeView {
 }
 
 #Preview {
-    HomeView()
+    HomeView(networkService: AppDependencies.networkService)
 }

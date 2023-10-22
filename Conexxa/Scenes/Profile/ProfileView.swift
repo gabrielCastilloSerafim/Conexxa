@@ -9,7 +9,12 @@ import SwiftUI
 
 struct ProfileView: View {
     
-    @StateObject private var vm = ProfileViewModel()
+    @StateObject private var vm: ProfileViewModel
+    
+    init(networkService: NetworkServiceProtocol) {
+        
+        _vm = StateObject(wrappedValue: ProfileViewModel(networkService: networkService))
+    }
     
     var body: some View {
         
@@ -33,5 +38,5 @@ private extension ProfileView {
 }
 
 #Preview {
-    ProfileView()
+    ProfileView(networkService: AppDependencies.networkService)
 }

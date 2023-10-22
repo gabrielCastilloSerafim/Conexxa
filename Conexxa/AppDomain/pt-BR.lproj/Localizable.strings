@@ -24,13 +24,19 @@
 "filters" = "Filtros";
 "remove" = "Remover";
 "apply" = "Aplicar";
-"cheapest" = "Mais Barato";
-"bestRating" = "Melhor avaliação";
+"cheapest" = "- Mais Barato";
+"bestRating" = "- Melhor avaliação";
 "bandName" = "Nome da banda";
 "filters" = "Filtros";
 "results" = "Resultados";
 "seeDetails" = "Ver detalhes";
 "contract" = "Contratar";
+
+// Empty Screens
+"noBookings" = "Sem agendamentos";
+"noBookingsExplanation" = "No momento você não dispõe de nenhum agendamento futuro.";
+"noFavorites" = "Sem favoritos";
+"noFavoritesExplanation" = "Marca artistas como favoritos para que apareçam aqui.";
 
 // Tabs
 "home" = "Home";

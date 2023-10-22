@@ -33,6 +33,13 @@
 		FF893FE32AB753C9005A87B7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF893FE22AB753C9005A87B7 /* LaunchScreen.storyboard */; };
 		FF893FE62AB7553F005A87B7 /* LaunchScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF893FE52AB7553F005A87B7 /* LaunchScreenView.swift */; };
 		FF893FE82AB75D63005A87B7 /* LaunchScreenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF893FE72AB75D63005A87B7 /* LaunchScreenManager.swift */; };
+		FFBFC0182AE5259100A0DDB1 /* SchedulesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFBFC0172AE5259100A0DDB1 /* SchedulesModel.swift */; };
+		FFBFC01A2AE52A0D00A0DDB1 /* ConexxaEmptyScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFBFC0192AE52A0D00A0DDB1 /* ConexxaEmptyScreen.swift */; };
+		FFBFC01C2AE52BAC00A0DDB1 /* FavoritesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFBFC01B2AE52BAC00A0DDB1 /* FavoritesModel.swift */; };
+		FFBFC0242AE53BB500A0DDB1 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFBFC0232AE53BB500A0DDB1 /* NetworkService.swift */; };
+		FFBFC0262AE5429500A0DDB1 /* NetworkServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFBFC0252AE5429500A0DDB1 /* NetworkServiceProtocol.swift */; };
+		FFBFC0282AE5434000A0DDB1 /* AppDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFBFC0272AE5434000A0DDB1 /* AppDependencies.swift */; };
+		FFBFC02A2AE54E3C00A0DDB1 /* BandDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFBFC0292AE54E3C00A0DDB1 /* BandDetailsViewModel.swift */; };
 		FFC1C60F2AC0551300A91EF6 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC1C60E2AC0551300A91EF6 /* TabBar.swift */; };
 		FFC1C6122AC0578E00A91EF6 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC1C6112AC0578E00A91EF6 /* HomeView.swift */; };
 		FFC1C6162AC059AE00A91EF6 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC1C6152AC059AE00A91EF6 /* HomeViewModel.swift */; };
@@ -96,6 +103,13 @@
 		FF893FE22AB753C9005A87B7 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FF893FE52AB7553F005A87B7 /* LaunchScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenView.swift; sourceTree = "<group>"; };
 		FF893FE72AB75D63005A87B7 /* LaunchScreenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenManager.swift; sourceTree = "<group>"; };
+		FFBFC0172AE5259100A0DDB1 /* SchedulesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchedulesModel.swift; sourceTree = "<group>"; };
+		FFBFC0192AE52A0D00A0DDB1 /* ConexxaEmptyScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConexxaEmptyScreen.swift; sourceTree = "<group>"; };
+		FFBFC01B2AE52BAC00A0DDB1 /* FavoritesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesModel.swift; sourceTree = "<group>"; };
+		FFBFC0232AE53BB500A0DDB1 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		FFBFC0252AE5429500A0DDB1 /* NetworkServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceProtocol.swift; sourceTree = "<group>"; };
+		FFBFC0272AE5434000A0DDB1 /* AppDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDependencies.swift; sourceTree = "<group>"; };
+		FFBFC0292AE54E3C00A0DDB1 /* BandDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BandDetailsViewModel.swift; sourceTree = "<group>"; };
 		FFC1C60E2AC0551300A91EF6 /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 		FFC1C6112AC0578E00A91EF6 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		FFC1C6152AC059AE00A91EF6 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
@@ -147,6 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				FF03FCBD2ADC535A006072D8 /* BandDetailsView.swift */,
+				FFBFC0292AE54E3C00A0DDB1 /* BandDetailsViewModel.swift */,
 			);
 			path = BandDetails;
 			sourceTree = "<group>";
@@ -194,9 +209,10 @@
 			children = (
 				FF893FE12AB75090005A87B7 /* Info.plist */,
 				FF893FC12AB25E72005A87B7 /* AppDomain */,
+				FF893FCA2AB2612D005A87B7 /* AppUtils */,
 				FF893FC22AB25EB2005A87B7 /* Scenes */,
 				FFE906A72AD7EF4B00AEC33B /* CommonViews */,
-				FF893FCA2AB2612D005A87B7 /* AppUtils */,
+				FFBFC02B2AE5526600A0DDB1 /* Services */,
 				FF5E817B2AAE36CD002E6E1B /* Preview Content */,
 			);
 			path = Conexxa;
@@ -231,6 +247,7 @@
 			isa = PBXGroup;
 			children = (
 				FF5E81752AAE36CC002E6E1B /* ConexxaApp.swift */,
+				FFBFC0272AE5434000A0DDB1 /* AppDependencies.swift */,
 				FF5E81792AAE36CD002E6E1B /* Assets.xcassets */,
 				FF893FE22AB753C9005A87B7 /* LaunchScreen.storyboard */,
 				FF893FC72AB2604F005A87B7 /* Localizable.strings */,
@@ -261,7 +278,6 @@
 			children = (
 				FFC1C6322AC0851900A91EF6 /* Constants */,
 				FF893FDC2AB73E28005A87B7 /* Designables */,
-				FF893FD02AB57D36005A87B7 /* UserDefaultsAbstractionLayer */,
 				FF893FCD2AB2626E005A87B7 /* FoundationExtensions */,
 				FF03FCB92ADC529B006072D8 /* GenericProtocols */,
 			);
@@ -278,14 +294,14 @@
 			path = FoundationExtensions;
 			sourceTree = "<group>";
 		};
-		FF893FD02AB57D36005A87B7 /* UserDefaultsAbstractionLayer */ = {
+		FF893FD02AB57D36005A87B7 /* UserDefaultsStorage */ = {
 			isa = PBXGroup;
 			children = (
 				FF893FD12AB57EE2005A87B7 /* Storage.swift */,
 				FF893FD32AB57F07005A87B7 /* UserDefaultsPropertyWrapper.swift */,
 				FF893FD52AB57F28005A87B7 /* UserDefaultsObservation.swift */,
 			);
-			path = UserDefaultsAbstractionLayer;
+			path = UserDefaultsStorage;
 			sourceTree = "<group>";
 		};
 		FF893FD72AB582B4005A87B7 /* Onboarding */ = {
@@ -315,6 +331,24 @@
 			path = LaunchScreen;
 			sourceTree = "<group>";
 		};
+		FFBFC0222AE53B8F00A0DDB1 /* NetworkService */ = {
+			isa = PBXGroup;
+			children = (
+				FFBFC0232AE53BB500A0DDB1 /* NetworkService.swift */,
+				FFBFC0252AE5429500A0DDB1 /* NetworkServiceProtocol.swift */,
+			);
+			path = NetworkService;
+			sourceTree = "<group>";
+		};
+		FFBFC02B2AE5526600A0DDB1 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				FFBFC0222AE53B8F00A0DDB1 /* NetworkService */,
+				FF893FD02AB57D36005A87B7 /* UserDefaultsStorage */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		FFC1C60B2AC054E500A91EF6 /* TabView */ = {
 			isa = PBXGroup;
 			children = (
@@ -338,6 +372,7 @@
 			children = (
 				FFC1C6182AC05BB900A91EF6 /* SchedulesView.swift */,
 				FFC1C61A2AC05BD100A91EF6 /* SchedulesViewModel.swift */,
+				FFBFC0172AE5259100A0DDB1 /* SchedulesModel.swift */,
 			);
 			path = Schedules;
 			sourceTree = "<group>";
@@ -347,6 +382,7 @@
 			children = (
 				FFC1C61F2AC05CF100A91EF6 /* FavoritesView.swift */,
 				FFC1C6212AC05D1400A91EF6 /* FavoritesViewModel.swift */,
+				FFBFC01B2AE52BAC00A0DDB1 /* FavoritesModel.swift */,
 			);
 			path = Favorites;
 			sourceTree = "<group>";
@@ -372,6 +408,7 @@
 			isa = PBXGroup;
 			children = (
 				FFE906A82AD7EF8200AEC33B /* BandCell.swift */,
+				FFBFC0192AE52A0D00A0DDB1 /* ConexxaEmptyScreen.swift */,
 			);
 			path = CommonViews;
 			sourceTree = "<group>";
@@ -508,9 +545,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FFBFC0182AE5259100A0DDB1 /* SchedulesModel.swift in Sources */,
 				FFC1C6162AC059AE00A91EF6 /* HomeViewModel.swift in Sources */,
 				FF5E81782AAE36CC002E6E1B /* OnboardingView.swift in Sources */,
 				FF893FCF2AB26291005A87B7 /* DataExtensions.swift in Sources */,
+				FFBFC01A2AE52A0D00A0DDB1 /* ConexxaEmptyScreen.swift in Sources */,
 				FF893FE82AB75D63005A87B7 /* LaunchScreenManager.swift in Sources */,
 				FFC1C6122AC0578E00A91EF6 /* HomeView.swift in Sources */,
 				FFC1C6192AC05BB900A91EF6 /* SchedulesView.swift in Sources */,
@@ -519,10 +558,13 @@
 				FF5E81762AAE36CC002E6E1B /* ConexxaApp.swift in Sources */,
 				FFC1C60F2AC0551300A91EF6 /* TabBar.swift in Sources */,
 				FF893FD92AB582E5005A87B7 /* OnboardingViewModel.swift in Sources */,
+				FFBFC0242AE53BB500A0DDB1 /* NetworkService.swift in Sources */,
 				FF893FDE2AB73E40005A87B7 /* ConexxaColor.swift in Sources */,
 				FF893FCC2AB26189005A87B7 /* StringExtension.swift in Sources */,
 				FF03FCBE2ADC535A006072D8 /* BandDetailsView.swift in Sources */,
 				FF2634462AC95D7900656145 /* BandsListingView.swift in Sources */,
+				FFBFC01C2AE52BAC00A0DDB1 /* FavoritesModel.swift in Sources */,
+				FFBFC0282AE5434000A0DDB1 /* AppDependencies.swift in Sources */,
 				FFC1C6202AC05CF100A91EF6 /* FavoritesView.swift in Sources */,
 				FFC1C6222AC05D1400A91EF6 /* FavoritesViewModel.swift in Sources */,
 				FF26344E2AC97BA500656145 /* FilterSelectionView.swift in Sources */,
@@ -533,9 +575,11 @@
 				FFC1C6292AC05F8700A91EF6 /* ProfileView.swift in Sources */,
 				FFC1C61B2AC05BD100A91EF6 /* SchedulesViewModel.swift in Sources */,
 				FF893FE02AB73E65005A87B7 /* ColorExtension.swift in Sources */,
+				FFBFC02A2AE54E3C00A0DDB1 /* BandDetailsViewModel.swift in Sources */,
 				FF26344C2AC95DA000656145 /* BandsListingModel.swift in Sources */,
 				FF03FCB82ADC528B006072D8 /* Navigation.swift in Sources */,
 				FF893FD42AB57F07005A87B7 /* UserDefaultsPropertyWrapper.swift in Sources */,
+				FFBFC0262AE5429500A0DDB1 /* NetworkServiceProtocol.swift in Sources */,
 				FF893FE62AB7553F005A87B7 /* LaunchScreenView.swift in Sources */,
 				FFC1C6312AC0783300A91EF6 /* Constants.swift in Sources */,
 				FFC1C6342AC0A09C00A91EF6 /* HomeModel.swift in Sources */,
@@ -783,7 +827,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 8395HM2DQS;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.gabrielCastillo.ConexxaTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -803,7 +847,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 8395HM2DQS;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.gabrielCastillo.ConexxaTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";

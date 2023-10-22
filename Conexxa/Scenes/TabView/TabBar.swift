@@ -46,7 +46,7 @@ private extension TabBar {
     
     var homeRootView: some View {
         
-        HomeView()
+        HomeView(networkService: AppDependencies.networkService)
             .tabItem {
                 Label("home".localized, systemImage: "house")
             }
@@ -54,7 +54,7 @@ private extension TabBar {
     
     var scheduleRootView: some View {
         
-        SchedulesView()
+        SchedulesView(networkService: AppDependencies.networkService)
             .tabItem {
                 Label("schedule".localized, systemImage: "calendar")
             }
@@ -62,7 +62,7 @@ private extension TabBar {
     
     var favoritesRootView: some View {
         
-        FavoritesView()
+        FavoritesView(networkService: AppDependencies.networkService)
             .tabItem {
                 Label("favorites".localized, systemImage: "heart")
             }
@@ -70,7 +70,7 @@ private extension TabBar {
     
     var profileRootView: some View {
         
-        ProfileView()
+        ProfileView(networkService: AppDependencies.networkService)
             .tabItem {
                 Label("profile".localized, systemImage: "person")
             }

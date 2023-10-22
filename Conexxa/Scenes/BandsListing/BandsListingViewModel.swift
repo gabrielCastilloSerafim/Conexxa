@@ -9,10 +9,16 @@ import SwiftUI
 
 class BandsListingViewModel: ObservableObject {
     
+    let networkService: NetworkServiceProtocol
     @Published var searchText: String = ""
     @Published var isFilterScreenPresented: Bool = false
     @Published var selectedFilters: [BandsListingFilters] = []
     @Published var bandsList: [Band] = []
+    
+    init(networkService: NetworkServiceProtocol) {
+        
+        self.networkService = networkService
+    }
     
     var selectedFilterText: String {
         
@@ -33,6 +39,11 @@ class BandsListingViewModel: ObservableObject {
         }
         
         return ""
+    }
+    
+    func didDismissFiltersModal() {
+        // TODO: Reload results for applied filters
+        // ..
     }
     
     func getBands() {

@@ -9,8 +9,14 @@ import SwiftUI
 
 struct BandsListingView: View {
     
-    @StateObject private var vm = BandsListingViewModel()
+    @StateObject private var vm: BandsListingViewModel
     let selectedQueryData: SelectedBandQueryData
+    
+    init(networkService: NetworkServiceProtocol, selectedQueryData: SelectedBandQueryData) {
+        
+        _vm = StateObject(wrappedValue: BandsListingViewModel(networkService: networkService))
+        self.selectedQueryData = selectedQueryData
+    }
     
     var body: some View {
         
@@ -38,20 +44,21 @@ struct BandsListingView: View {
         .onAppear {
             vm.getBands()
         }
-        .navigationDestination(isPresented: $vm.isFilterScreenPresented) {
-            
-            FilterSelectionView(
-                selectedFilters: $vm.selectedFilters,
-                isFilterScreenPresented: $vm.isFilterScreenPresented)
-        }
         .navigationDestination(for: NavigationDestinations.self) { destination in
             
             switch destination {
                 
             case .bandDetails:
-                BandDetailsView()
+                BandDetailsView(networkService: AppDependencies.networkService)
             }
         }
+        .sheet(isPresented: $vm.isFilterScreenPresented, onDismiss: vm.didDismissFiltersModal, content: {
+            FilterSelectionView(
+                selectedFilters: $vm.selectedFilters,
+                isFilterScreenPresented: $vm.isFilterScreenPresented)
+                .presentationDetents([.medium])
+                .presentationDragIndicator(.visible)
+        })
     }
 }
 
@@ -139,7 +146,9 @@ private extension BandsListingView {
 }
 
 #Preview {
-    BandsListingView(selectedQueryData: SelectedBandQueryData(
+    BandsListingView(
+        networkService: AppDependencies.networkService,
+        selectedQueryData: SelectedBandQueryData(
         artistStyle: .band,
         workArea: .zonaNorte,
         dayPeriod: .night,

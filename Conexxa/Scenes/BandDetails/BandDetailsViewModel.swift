@@ -1,16 +1,15 @@
 //
-//  FavoritesViewModel.swift
+//  BandDetailsViewModel.swift
 //  Conexxa
 //
-//  Created by Gabriel Castillo Serafim on 24/9/23.
+//  Created by Gabriel Castillo Serafim on 22/10/23.
 //
 
 import Foundation
 
-class FavoritesViewModel: ObservableObject {
+class BandDetailsViewModel: ObservableObject {
     
     let networkService: NetworkServiceProtocol
-    @Published var screenState: FavoritesScreenState = .emptyScreen
     
     init(networkService: NetworkServiceProtocol) {
         

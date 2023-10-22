@@ -7,13 +7,16 @@
 
 import SwiftUI
 
-// ProcessInfo.processInfo.environment["API_BASE_URL"]
-
 struct OnboardingView: View {
     
     @EnvironmentObject var launchScreenManager: LaunchScreenManager
     @State var didFinishLaunch: Bool = false
-    @StateObject private var vm = OnboardingViewModel(appStorage: Storage())
+    @StateObject private var vm: OnboardingViewModel
+    
+    init(userDefaultsStorage: UserDefaultsStorageProtocol) {
+        
+        _vm = StateObject(wrappedValue: OnboardingViewModel(userDefaultsStaorage: userDefaultsStorage))
+    }
     
     var body: some View {
         
@@ -122,6 +125,6 @@ private extension OnboardingView {
 }
 
 #Preview {
-    OnboardingView()
+    OnboardingView(userDefaultsStorage: AppDependencies.userDefaultsStorage)
         .environmentObject(LaunchScreenManager())
 }

@@ -9,6 +9,7 @@ import SwiftUI
 
 class HomeViewModel: ObservableObject {
     
+    let networkService: NetworkServiceProtocol
     let impactFeedbackGenerator = UIImpactFeedbackGenerator(style: .medium)
     @Published var bestRankedBands: [Band] = []
     @Published var selectedArtistStyle: ArtistStyle = .band
@@ -16,6 +17,11 @@ class HomeViewModel: ObservableObject {
     @Published var selectedDayPeriod: DayPeriod = .night
     @Published var selectedMusicalStyle: MusicalStyle = .rock
     @Published var selectedDate: Date = Date.now
+    
+    init(networkService: NetworkServiceProtocol) {
+        
+        self.networkService = networkService
+    }
     
     func getBestRankedBands() {
         

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Storage: AppStorageProtocol {
+struct UserDefaultsStorage: UserDefaultsStorageProtocol {
     
     @UserDefault(key: .onboardingSeenWithOption)
     var onboardingSeenWithOption: String?
@@ -20,7 +20,7 @@ extension Key {
 }
 
 
-protocol AppStorageProtocol {
+protocol UserDefaultsStorageProtocol {
     
     var onboardingSeenWithOption: String? { get set }
 }

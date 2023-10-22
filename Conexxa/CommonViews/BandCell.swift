@@ -107,8 +107,8 @@ private extension BandCell {
                     .padding(.vertical, 8)
                     .foregroundColor(ConexxaColor.white())
                     .background(ConexxaColor.green())
-                    .cornerRadius(14)
-                    .shadow(radius: 1)
+                    .cornerRadius(10)
+                    .shadow(radius: 2)
             }
         }
         .padding(.leading, 20)

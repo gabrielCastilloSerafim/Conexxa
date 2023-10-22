@@ -9,7 +9,12 @@ import SwiftUI
 
 struct FavoritesView: View {
     
-    @StateObject private var vm = FavoritesViewModel()
+    @StateObject private var vm: FavoritesViewModel
+    
+    init(networkService: NetworkServiceProtocol) {
+        
+        _vm = StateObject(wrappedValue: FavoritesViewModel(networkService: networkService))
+    }
     
     var body: some View {
         
@@ -18,6 +23,9 @@ struct FavoritesView: View {
             ZStack {
                 
                 backGround
+                
+                emptyScreen
+                    .opacity( vm.screenState == .emptyScreen ? 1 : 0)
             }
             .navigationTitle("favorites".localized)
         }
@@ -30,8 +38,17 @@ private extension FavoritesView {
         ConexxaColor.dirtyWhite()
             .ignoresSafeArea(.all)
     }
+    
+    var emptyScreen: some View {
+        
+        ConexxaEmptyScreen(
+            image: Image(systemName: "heart.fill"),
+            imageColor: ConexxaColor.red(),
+            title: "noFavorites".localized,
+            subtitle: "noFavoritesExplanation".localized)
+    }
 }
 
 #Preview {
-    FavoritesView()
+    FavoritesView(networkService: AppDependencies.networkService)
 }

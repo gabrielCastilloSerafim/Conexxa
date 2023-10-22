@@ -9,14 +9,15 @@ import Foundation
 
 class OnboardingViewModel: ObservableObject {
     
-    var appStorage: AppStorageProtocol
+    var userDefaultsStaorage: UserDefaultsStorageProtocol
     
-    init(appStorage: AppStorageProtocol) {
-        self.appStorage = appStorage
+    init(userDefaultsStaorage: UserDefaultsStorageProtocol) {
+        
+        self.userDefaultsStaorage = userDefaultsStaorage
     }
     
     func didSeeOnboardingWithSelectedOption(option: String) {
         
-        appStorage.onboardingSeenWithOption = option
+        userDefaultsStaorage.onboardingSeenWithOption = option
     }
 }

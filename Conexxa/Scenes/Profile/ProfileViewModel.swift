@@ -9,4 +9,11 @@ import Foundation
 
 class ProfileViewModel: ObservableObject {
     
+    let networkService: NetworkServiceProtocol
+    
+    init(networkService: NetworkServiceProtocol) {
+        
+        self.networkService = networkService
+    }
+    
 }

@@ -18,7 +18,7 @@ struct ConexxaApp: App {
             
             ZStack {
                 
-                switch Storage().onboardingSeenWithOption {
+                switch AppDependencies.userDefaultsStorage.onboardingSeenWithOption {
                     
                 case Constants.APP_GUEST_MODE:
                     
@@ -34,7 +34,7 @@ struct ConexxaApp: App {
                     
                 default:
                     
-                    OnboardingView()
+                    OnboardingView(userDefaultsStorage: AppDependencies.userDefaultsStorage)
                 }
                 
                 if launchScreenManager.state != .completed {

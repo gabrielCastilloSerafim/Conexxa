@@ -10,6 +10,7 @@ import SwiftUI
 struct FilterSelectionView: View {
     
     @Binding var selectedFilters: [BandsListingFilters]
+    var inScreenSelectedFilters = [BandsListingFilters]()
     @Binding var isFilterScreenPresented: Bool
     @State var cheepFilterState = false
     @State var bestRankingFilterState = false
@@ -17,14 +18,16 @@ struct FilterSelectionView: View {
     
     var body: some View {
         
-        VStack {
+        ZStack {
             
-            Form {
-                
-                formFirstSection
-                formSeccondSection
-                
-            }.onAppear {
+            ConexxaColor.white()
+            
+            VStack {
+                filtersTitleAndRemoveFiltersButton
+                togglesStack
+                Spacer()
+            }
+            .onAppear {
                 
                 selectedFilters.forEach { filter in
                     
@@ -42,22 +45,33 @@ struct FilterSelectionView: View {
                 }
             }
         }
-        .navigationTitle("filters".localized)
-        .toolbar {
-            
-            toolBarButton
-        }
     }
 }
 
 private extension FilterSelectionView {
     
-    var formFirstSection: some View {
+    var filtersTitleAndRemoveFiltersButton: some View {
         
-        Section {
+        HStack {
+            Text("filters".localized)
+                .font(.system(.title, weight: .heavy))
+            
+            Spacer()
+            
+            removeFiltersButton
+        }
+        .padding(.leading, 20)
+        .padding(.top, 40)
+        .padding(.trailing, 20)
+    }
+    
+    var togglesStack: some View {
+        
+        VStack {
             
             Toggle(isOn: $cheepFilterState, label: {
                 Text("cheapest".localized)
+                    .font(.system(size: 18, weight: .medium))
             })
             .tint(ConexxaColor.green())
             .onChange(of: cheepFilterState) { value in
@@ -76,9 +90,11 @@ private extension FilterSelectionView {
                     selectedFilters.removeAll(where: { $0 == .cheaper })
                 }
             }
+            .padding(.bottom, 10)
             
             Toggle(isOn: $bestRankingFilterState, label: {
                 Text("bestRating".localized)
+                    .font(.system(size: 18, weight: .medium))
             })
             .tint(ConexxaColor.green())
             .onChange(of: bestRankingFilterState) { value in
@@ -98,29 +114,12 @@ private extension FilterSelectionView {
                 }
             }
         }
+        .padding(.leading, 20)
+        .padding(.trailing, 23)
+        .padding(.top, 20)
     }
     
-    var formSeccondSection: some View {
-        
-        Section {
-            
-            HStack {
-                Spacer()
-                Button(action: {
-                    
-                    isFilterScreenPresented = false
-                }, label: {
-                    
-                    Text("apply".localized)
-                        .multilineTextAlignment(.center)
-                        .font(.system(size: 16, weight: .bold))
-                })
-                Spacer()
-            }
-        }
-    }
-    
-    var toolBarButton: some View {
+    var removeFiltersButton: some View {
         
         Button(action: {
             
@@ -140,10 +139,26 @@ private extension FilterSelectionView {
             
         }, label: {
             
-            Text("remove".localized)
-                .multilineTextAlignment(.center)
-                .font(.system(size: 16))
-                .foregroundStyle(.red)
+            ZStack {
+                ConexxaColor.red()
+                    .frame(width: 90, height: 35)
+                    .cornerRadius(8)
+                    .shadow(radius: 2)
+                
+                Text("remove".localized)
+                    .multilineTextAlignment(.center)
+                    .font(.system(size: 16, weight: .medium))
+                    .foregroundStyle(.white)
+            }
         })
     }
+}
+
+#Preview {
+    FilterSelectionView(
+        selectedFilters: .constant([]),
+        isFilterScreenPresented: .constant(true),
+        cheepFilterState: false,
+        bestRankingFilterState: false,
+        noneFilterState: false)
 }
