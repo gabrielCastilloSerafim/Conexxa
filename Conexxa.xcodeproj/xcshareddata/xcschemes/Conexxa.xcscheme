@@ -76,7 +76,7 @@
       <EnvironmentVariables>
          <EnvironmentVariable
             key = "API_BASE_URL"
-            value = "my_api_base_url_production"
+            value = "prodApiUrl"
             isEnabled = "YES">
          </EnvironmentVariable>
       </EnvironmentVariables>

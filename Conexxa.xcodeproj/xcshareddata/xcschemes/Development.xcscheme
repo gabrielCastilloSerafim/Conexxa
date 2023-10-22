@@ -52,7 +52,7 @@
       <EnvironmentVariables>
          <EnvironmentVariable
             key = "API_BASE_URL"
-            value = "my_api_base_url_development"
+            value = "devBaseUrl"
             isEnabled = "YES">
          </EnvironmentVariable>
       </EnvironmentVariables>
