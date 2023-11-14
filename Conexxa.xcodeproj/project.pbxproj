@@ -21,6 +21,7 @@
 		FF5E81872AAE36CD002E6E1B /* ConexxaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5E81862AAE36CD002E6E1B /* ConexxaTests.swift */; };
 		FF5E81912AAE36CD002E6E1B /* ConexxaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5E81902AAE36CD002E6E1B /* ConexxaUITests.swift */; };
 		FF5E81932AAE36CD002E6E1B /* ConexxaUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5E81922AAE36CD002E6E1B /* ConexxaUITestsLaunchTests.swift */; };
+		FF750FD02B042389004A6785 /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF750FCF2B042389004A6785 /* ProfileModel.swift */; };
 		FF893FC52AB2604F005A87B7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FF893FC72AB2604F005A87B7 /* Localizable.strings */; };
 		FF893FCC2AB26189005A87B7 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF893FCB2AB26189005A87B7 /* StringExtension.swift */; };
 		FF893FCF2AB26291005A87B7 /* DataExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF893FCE2AB26291005A87B7 /* DataExtensions.swift */; };
@@ -90,6 +91,7 @@
 		FF5E81902AAE36CD002E6E1B /* ConexxaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConexxaUITests.swift; sourceTree = "<group>"; };
 		FF5E81922AAE36CD002E6E1B /* ConexxaUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConexxaUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		FF5E81A12AAFC534002E6E1B /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
+		FF750FCF2B042389004A6785 /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
 		FF893FC62AB2604F005A87B7 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		FF893FCB2AB26189005A87B7 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		FF893FCE2AB26291005A87B7 /* DataExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataExtensions.swift; sourceTree = "<group>"; };
@@ -391,6 +393,7 @@
 			isa = PBXGroup;
 			children = (
 				FFC1C6282AC05F8700A91EF6 /* ProfileView.swift */,
+				FF750FCF2B042389004A6785 /* ProfileModel.swift */,
 				FFC1C62A2AC05FB400A91EF6 /* ProfileViewModel.swift */,
 			);
 			path = Profile;
@@ -545,6 +548,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF750FD02B042389004A6785 /* ProfileModel.swift in Sources */,
 				FFBFC0182AE5259100A0DDB1 /* SchedulesModel.swift in Sources */,
 				FFC1C6162AC059AE00A91EF6 /* HomeViewModel.swift in Sources */,
 				FF5E81782AAE36CC002E6E1B /* OnboardingView.swift in Sources */,
