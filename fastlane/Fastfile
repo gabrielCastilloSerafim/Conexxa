@@ -39,6 +39,7 @@ fastlane_require "dotenv"
   lane :build do
   
     signing
+    ensure_xcode_version(version: "15.0.1")
     build_ios_app #gym
     
   end
