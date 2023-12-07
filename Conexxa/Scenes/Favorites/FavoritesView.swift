@@ -18,26 +18,19 @@ struct FavoritesView: View {
     
     var body: some View {
         
-        NavigationStack {
+        ZStack {
             
-            ZStack {
-                
-                backGround
-                
-                emptyScreen
-                    .opacity( vm.screenState == .emptyScreen ? 1 : 0)
-            }
-            .navigationTitle("favorites".localized)
+            UIFactory.defaultBackground
+            
+            emptyScreen
+                .opacity( vm.screenState == .emptyScreen ? 1 : 0)
         }
+        .navigationTitle("favorites".localized)
     }
+    
 }
 
 private extension FavoritesView {
-    
-    var backGround: some View {
-        ConexxaColor.dirtyWhite()
-            .ignoresSafeArea(.all)
-    }
     
     var emptyScreen: some View {
         
@@ -50,5 +43,5 @@ private extension FavoritesView {
 }
 
 #Preview {
-    FavoritesView(networkService: AppDependencies.networkService)
+    FavoritesView(networkService: NetworkService())
 }

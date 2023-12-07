@@ -22,7 +22,7 @@ struct BandsListingView: View {
         
         ZStack {
             
-            backGround
+            UIFactory.defaultBackground
             
             ScrollView {
                 
@@ -49,7 +49,7 @@ struct BandsListingView: View {
             switch destination {
                 
             case .bandDetails:
-                BandDetailsView(networkService: AppDependencies.networkService)
+                BandDetailsView(networkService: NetworkService())
             }
         }
         .sheet(isPresented: $vm.isFilterScreenPresented, onDismiss: vm.didDismissFiltersModal, content: {
@@ -69,12 +69,6 @@ private extension BandsListingView {
     enum NavigationDestinations: Navigation {
         
         case bandDetails
-    }
-    
-    var backGround: some View {
-        
-        ConexxaColor.dirtyWhite()
-            .ignoresSafeArea(.all)
     }
     
     var queryInfoView: some View {
@@ -147,7 +141,7 @@ private extension BandsListingView {
 
 #Preview {
     BandsListingView(
-        networkService: AppDependencies.networkService,
+        networkService: NetworkService(),
         selectedQueryData: SelectedBandQueryData(
         artistStyle: .band,
         workArea: .zonaNorte,

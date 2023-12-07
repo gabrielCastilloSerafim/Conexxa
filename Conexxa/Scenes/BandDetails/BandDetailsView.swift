@@ -21,5 +21,5 @@ struct BandDetailsView: View {
 }
 
 #Preview {
-    BandDetailsView(networkService: AppDependencies.networkService)
+    BandDetailsView(networkService: NetworkService())
 }

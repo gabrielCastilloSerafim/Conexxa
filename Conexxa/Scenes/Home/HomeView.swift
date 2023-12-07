@@ -17,46 +17,43 @@ struct HomeView: View {
     
     var body: some View {
         
-        NavigationStack {
+        ZStack {
             
-            ZStack {
+            UIFactory.defaultBackground
+            
+            VStack(spacing: 0) {
                 
-                backGround
+                conexxaHeader
+                Divider()
                 
-                VStack(spacing: 0) {
+                ScrollView {
                     
-                    conexxaHeader
-                    Divider()
-                    
-                    ScrollView {
-                        
-                        completeQueryView
-                        bestRankedText
-                        bestRatedBandsList
-                    }
-                    .scrollIndicators(.hidden)
+                    completeQueryView
+                    bestRankedText
+                    bestRatedBandsList
                 }
-                .padding(.leading, 10)
-                .padding(.trailing, 10)
-                
+                .scrollIndicators(.hidden)
             }
-            .onAppear {
+            .padding(.leading, 10)
+            .padding(.trailing, 10)
+            
+        }
+        .onAppear {
+            
+            vm.getBestRankedBands()
+        }
+        .navigationBarHidden(true)
+        .navigationDestination(for: NavigationDestinations.self) { destination in
+            
+            switch destination {
                 
-                vm.getBestRankedBands()
-            }
-            .navigationBarHidden(true)
-            .navigationDestination(for: NavigationDestinations.self) { destination in
+            case .bandsListing:
+                BandsListingView(
+                    networkService: NetworkService(),
+                    selectedQueryData: vm.getSelectedQueryData())
                 
-                switch destination {
-                    
-                case .bandsListing:
-                    BandsListingView(
-                        networkService: AppDependencies.networkService,
-                        selectedQueryData: vm.getSelectedQueryData())
-                    
-                case .bandDetails:
-                    BandDetailsView(networkService: AppDependencies.networkService)
-                }
+            case .bandDetails:
+                BandDetailsView(networkService: NetworkService())
             }
         }
     }
@@ -70,12 +67,6 @@ private extension HomeView {
         
         case bandsListing
         case bandDetails
-    }
-    
-    var backGround: some View {
-        
-        ConexxaColor.dirtyWhite()
-            .ignoresSafeArea(.all)
     }
     
     var conexxaHeader: some View {
@@ -381,5 +372,5 @@ private extension HomeView {
 }
 
 #Preview {
-    HomeView(networkService: AppDependencies.networkService)
+    HomeView(networkService: NetworkService())
 }

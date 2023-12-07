@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct GlassView: View {
+    
     let cornerRadius: CGFloat
     let fill: Color
     let opacity: CGFloat
@@ -29,6 +30,7 @@ struct GlassView: View {
 }
 
 struct GlassModifier: ViewModifier {
+    
     let cornerRadius: CGFloat
     let fill: Color
     let opacity: CGFloat
@@ -43,6 +45,7 @@ struct GlassModifier: ViewModifier {
 }
 
 extension View {
+    
     func glass(cornerRadius: CGFloat, fill: Color = .white, opacity: CGFloat = 0.25, shadowRadius: CGFloat = 10.0) -> some View {
         modifier(GlassModifier(cornerRadius: cornerRadius, fill: fill, opacity: opacity, shadowRadius: shadowRadius))
     }

@@ -9,62 +9,57 @@ import SwiftUI
 
 struct OnboardingView: View {
     
-    @EnvironmentObject var launchScreenManager: LaunchScreenManager
-    @State var didFinishLaunch: Bool = false
     @StateObject private var vm: OnboardingViewModel
+    @EnvironmentObject var tabBarStateObject: TabBarState
+    @Environment(\.dismiss) private var dismiss
+    @AppStorage(Constants.CURRENT_USER_LOGIN_STATE) var currentUserLoginState: String?
     
-    init(userDefaultsStorage: UserDefaultsStorageProtocol) {
+    init() {
         
-        _vm = StateObject(wrappedValue: OnboardingViewModel(userDefaultsStaorage: userDefaultsStorage))
+        _vm = StateObject(wrappedValue: OnboardingViewModel())
     }
     
     var body: some View {
-        
-        NavigationView {
             
-            ZStack {
+        ZStack {
+            
+            UIFactory.defaultBackground
+            
+            VStack {
                 
-                backgroundColor
-                
-                VStack {
-                    
-                    logoImage
-                    sloganLabel
-                    Spacer()
-                }
-                
-                blurCircle
-                
-                VStack {
-                    
-                    noRegistrationButton
-                    musicianRegistrationButton
-                }
-                .padding(.top, 197)
+                logoImage
+                sloganLabel
+                Spacer()
             }
-            .opacity(didFinishLaunch ? 1 : 0)
-            .onAppear {
+            
+            blurRectangle
+            
+            VStack {
                 
-                DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-                    launchScreenManager.dismiss()
-                }
-                
-                DispatchQueue.main.asyncAfter(deadline: .now() + 4.1) {
-                    withAnimation(.easeInOut(duration: 0.45)) {
-                        didFinishLaunch.toggle()
-                    }
-                }
+                noRegistrationButton
+                registerButton
+                loginButton
             }
+            .padding(.top, 197)
         }
+        .toolbar(.hidden, for: .tabBar)
+        .navigationDestination(isPresented: $vm.registerNavigation, destination: {
+            RegisterFormView(networkService: NetworkService(), userRegistrationType: vm.userRegistrationType ?? .contractor)
+        })
+        .navigationDestination(isPresented: $vm.loginNavigation, destination: {
+            LoginView(networkService: NetworkService())
+        })
+        .sheet(isPresented: $vm.registrationPickerPresentation, onDismiss: vm.didDismissRegistersModal, content: {
+            RegisterTypePickerView(
+                isRegistrationPickerPresented: $vm.registrationPickerPresentation,
+                userRegistrationType: $vm.userRegistrationType)
+            .presentationDetents([.medium])
+            .presentationDragIndicator(.visible)
+        })
     }
 }
 
 private extension OnboardingView {
-    
-    var backgroundColor: some View {
-        ConexxaColor.dirtyWhite()
-            .ignoresSafeArea(.all)
-    }
     
     var logoImage: some View {
         Image("ConexxaLogoVertical")
@@ -82,9 +77,11 @@ private extension OnboardingView {
             .padding(.top, 20)
     }
     
-    var blurCircle: some View {
-        Circle()
-            .padding(.top, 195)
+    var blurRectangle: some View {
+        Rectangle()
+            .frame(width: 330, height: 320)
+            .cornerRadius(30)
+            .padding(.top, 200)
             .padding(.leading, 25)
             .padding(.trailing, 25)
             .blur(radius: 10)
@@ -92,32 +89,44 @@ private extension OnboardingView {
     }
     
     var noRegistrationButton: some View {
-        NavigationLink() {
-            TabBar(needsToDismissLaunchScreen: false)
+        Button {
+            currentUserLoginState = Constants.APP_GUEST_MODE
+            tabBarStateObject.tabBarState = .guest
+            dismiss()
+            
         } label: {
             Text("noRegistrationButtonText".localized)
                 .fontWeight(.bold)
-                .frame(width: 230, height: 60)
+                .frame(width: 240, height: 55)
                 .foregroundColor(ConexxaColor.black())
                 .background(ConexxaColor.green())
                 .cornerRadius(10)
         }
-        .simultaneousGesture(TapGesture().onEnded({
-            vm.didSeeOnboardingWithSelectedOption(option: Constants.APP_GUEST_MODE)
-        }))
     }
     
-    var musicianRegistrationButton: some View {
+    var registerButton: some View {
         Button {
-            
-            print("Here")
-            
+            vm.registrationPickerPresentation.toggle()
         } label: {
-            Text("musicianRegisterButtonText".localized)
+            Text("registerButtonText".localized)
                 .fontWeight(.bold)
-                .frame(width: 230, height: 60)
-                .foregroundColor(ConexxaColor.green())
-                .background(ConexxaColor.blue())
+                .frame(width: 240, height: 55)
+                .foregroundColor(ConexxaColor.white())
+                .background(ConexxaColor.purple())
+                .cornerRadius(10)
+        }
+        .padding(.top, 25)
+    }
+    
+    var loginButton: some View {
+        Button {
+            vm.loginNavigation.toggle()
+        } label: {
+            Text("loginButton".localized)
+                .fontWeight(.bold)
+                .frame(width: 240, height: 55)
+                .foregroundColor(ConexxaColor.white())
+                .background(ConexxaColor.purple())
                 .cornerRadius(10)
         }
         .padding(.top, 25)
@@ -125,6 +134,5 @@ private extension OnboardingView {
 }
 
 #Preview {
-    OnboardingView(userDefaultsStorage: AppDependencies.userDefaultsStorage)
-        .environmentObject(LaunchScreenManager())
+    OnboardingView()
 }

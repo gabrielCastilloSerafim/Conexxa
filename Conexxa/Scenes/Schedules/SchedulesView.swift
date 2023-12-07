@@ -18,27 +18,19 @@ struct SchedulesView: View {
     
     var body: some View {
         
-        NavigationStack {
+        ZStack {
             
-            ZStack {
-                
-                backGround
-                
-                emptyScreen
-                    .opacity( vm.screenState == .emptyScreen ? 1 : 0)
-                
-            }
-            .navigationTitle("schedule".localized)
+            UIFactory.defaultBackground
+            
+            emptyScreen
+                .opacity( vm.screenState == .emptyScreen ? 1 : 0)
+            
         }
+        .navigationTitle("schedule".localized)
     }
 }
 
 private extension SchedulesView {
-    
-    var backGround: some View {
-        ConexxaColor.dirtyWhite()
-            .ignoresSafeArea(.all)
-    }
     
     var emptyScreen: some View {
         
@@ -51,5 +43,5 @@ private extension SchedulesView {
 }
 
 #Preview {
-    SchedulesView(networkService: AppDependencies.networkService)
+    SchedulesView(networkService: NetworkService())
 }

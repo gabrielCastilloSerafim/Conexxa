@@ -9,15 +9,15 @@ import Foundation
 
 class OnboardingViewModel: ObservableObject {
     
-    var userDefaultsStaorage: UserDefaultsStorageProtocol
+    @Published var registrationPickerPresentation: Bool = false
+    @Published var registerNavigation: Bool = false
+    @Published var loginNavigation: Bool = false
+    @Published var userRegistrationType: UserRegistrationType?
     
-    init(userDefaultsStaorage: UserDefaultsStorageProtocol) {
+    func didDismissRegistersModal() {
         
-        self.userDefaultsStaorage = userDefaultsStaorage
+        guard userRegistrationType != nil else { return }
+        registerNavigation.toggle()
     }
     
-    func didSeeOnboardingWithSelectedOption(option: String) {
-        
-        userDefaultsStaorage.onboardingSeenWithOption = option
-    }
 }

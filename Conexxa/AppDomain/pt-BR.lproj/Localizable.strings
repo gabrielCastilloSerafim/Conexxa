@@ -9,8 +9,9 @@
 // Miscellaneous
 "slogan" = "Vivencie a melhor experiência";
 "noRegistrationButtonText" = "Entrar sem cadastro";
-"musicianRegisterButtonText" = "Cadastrar como músico";
+"registerButtonText" = "Cadastrar-se";
 "band" = "Banda";
+"contractor" = "Contratante";
 "musician" = "Músico";
 "dj" = "DJ";
 "bestRanked" = "Mais bem ranqueados:";
@@ -31,6 +32,21 @@
 "results" = "Resultados";
 "seeDetails" = "Ver detalhes";
 "contract" = "Contratar";
+"registerTypeModalTitle" = "Cadastrar como:";
+"register" = "Cadastro";
+"confirm" = "Confirmar";
+"explanationCallout" = "Se deseja contratar uma banda faça registro como contratante, caso deseje oferecer serviços como músico faça o registro como banda. 🤘";
+"loginButton" = "Fazer login";
+"login" = "Login";
+"badEmailAlertTitle" = "Email invalido 😕";
+"badEmailAlertMessage" = "O email deve ter um formato valido.";
+"passwordMissmatchAlertTitle" = "As senhas não coencidem 😕";
+"passwordMissmatchAlertMessage" = "Para proseguir a senha deve coincidir com a confirmação da senha.";
+"invalidPasswordAlertTitle" = "A senha nao possui um formato válido 😕";
+"invalidPasswordAlertMessage" = "Para proseguir a senha deve conter um mínimo de 8 caracteres.";
+"missingInformationAlertTitle" = "Falta informação 😕";
+"missingInformationAlertMessage" = "Para poder proseguir preencha todos os campos.";
+"ok" = "Ok";
 
 // Empty Screens
 "noBookings" = "Sem agendamentos";
