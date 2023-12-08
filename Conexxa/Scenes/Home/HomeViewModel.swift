@@ -7,7 +7,8 @@
 
 import SwiftUI
 
-class HomeViewModel: ObservableObject {
+@MainActor
+final class HomeViewModel: ObservableObject {
     
     let networkService: NetworkServiceProtocol
     let impactFeedbackGenerator = UIImpactFeedbackGenerator(style: .medium)

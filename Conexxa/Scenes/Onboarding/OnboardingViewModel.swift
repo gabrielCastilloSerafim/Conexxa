@@ -7,7 +7,7 @@
 
 import Foundation
 
-class OnboardingViewModel: ObservableObject {
+final class OnboardingViewModel: ObservableObject {
     
     @Published var registrationPickerPresentation: Bool = false
     @Published var registerNavigation: Bool = false

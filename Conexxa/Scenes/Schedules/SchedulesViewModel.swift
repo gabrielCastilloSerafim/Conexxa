@@ -7,7 +7,8 @@
 
 import Foundation
 
-class SchedulesViewModel: ObservableObject {
+@MainActor
+final class SchedulesViewModel: ObservableObject {
     
     let networkService: NetworkServiceProtocol
     @Published var screenState: ScheduleScreenState = .emptyScreen

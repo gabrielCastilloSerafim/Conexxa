@@ -7,7 +7,8 @@
 
 import Foundation
 
-class FavoritesViewModel: ObservableObject {
+@MainActor
+final class FavoritesViewModel: ObservableObject {
     
     let networkService: NetworkServiceProtocol
     @Published var screenState: FavoritesScreenState = .emptyScreen

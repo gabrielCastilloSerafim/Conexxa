@@ -14,7 +14,6 @@ struct LoginView: View {
     @Environment(\.dismiss) private var dismiss
     @StateObject var vm: LoginViewModel
     @FocusState private var focusedField: LiginFields?
-    private var logger = Logger(subsystem: "LoginView", category: "NetworkRequest")
     
     init(networkService: NetworkServiceProtocol) {
         
@@ -44,7 +43,13 @@ struct LoginView: View {
         } message: {
             Text(vm.alertMessageData.alertMessage)
         }
-
+        .onChange(of: vm.endLoginProcess) { _ in
+            tabBarStateObject.tabBarState = .loggedContractor
+            dismiss()
+        }
+        .onDisappear {
+            vm.cancelTasks()
+        }
     }
 }
 
@@ -60,6 +65,7 @@ private extension LoginView {
                     .textInputAutocapitalization(.never)
                     .focused($focusedField, equals: .email)
                     .autocorrectionDisabled()
+                    .keyboardType(.emailAddress)
                     .submitLabel(.next)
                     .onChange(of: vm.email, perform: { _ in
                         vm.reloadContinueButtonState()
@@ -99,21 +105,7 @@ private extension LoginView {
     var confirmationButton: some View {
         
         Button {
-            
-            guard vm.canContinueWithRegisterAction() else { return }
-            
-            Task {
-                do {
-                    try await vm.userLoginAction()
-                    await MainActor.run {
-                        tabBarStateObject.tabBarState = .loggedContractor
-                        dismiss()
-                    }
-                } catch {
-                    logger.error("User login failed with error: \(error.localizedDescription)")
-                }
-            }
-            
+            vm.userLoginAction()
         } label: {
             Text("confirm".localized)
                 .fontWeight(.bold)

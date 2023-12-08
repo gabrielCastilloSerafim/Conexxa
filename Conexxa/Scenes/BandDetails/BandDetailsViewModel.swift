@@ -7,7 +7,8 @@
 
 import Foundation
 
-class BandDetailsViewModel: ObservableObject {
+@MainActor
+final class BandDetailsViewModel: ObservableObject {
     
     let networkService: NetworkServiceProtocol
     

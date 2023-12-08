@@ -7,7 +7,8 @@
 
 import SwiftUI
 
-class BandsListingViewModel: ObservableObject {
+@MainActor
+final class BandsListingViewModel: ObservableObject {
     
     let networkService: NetworkServiceProtocol
     @Published var searchText: String = ""

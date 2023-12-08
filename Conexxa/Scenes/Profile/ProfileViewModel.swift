@@ -7,7 +7,8 @@
 
 import Foundation
 
-class ProfileViewModel: ObservableObject {
+@MainActor
+final class ProfileViewModel: ObservableObject {
     
     let networkService: NetworkServiceProtocol
     

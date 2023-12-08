@@ -6,13 +6,17 @@
 //
 
 import Foundation
+import OSLog
 
-class RegisterFormViewModel: ObservableObject {
+@MainActor
+final class RegisterFormViewModel: ObservableObject {
     
     // Dependencies
     private var networkService: NetworkServiceProtocol
     
     // Properties
+    private var logger = Logger(subsystem: "RegisterFormView", category: "NetworkRequest")
+    var tasks: [Task<Void, Never>] = []
     let userRegistrationType: UserRegistrationType
     var profileImageData: Data?
     var presentingAlertType: RegisterFormAlerts?
@@ -26,8 +30,8 @@ class RegisterFormViewModel: ObservableObject {
     @Published var continueButtonDisabled: Bool = true
     @Published var presentAlert: Bool = false
     @Published var screenLoading: Bool = false
+    @Published var endRegistrationProcess: Bool = false
 
-    
     init(networkService: NetworkServiceProtocol, userRegistrationType: UserRegistrationType) {
         
         self.networkService = networkService
@@ -51,7 +55,7 @@ class RegisterFormViewModel: ObservableObject {
         password == passwordConfirmation
     }
     
-    var haveEmptyFields: Bool {
+    var hasEmptyFields: Bool {
         
         return (name.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty ||
         surname.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty ||
@@ -62,7 +66,7 @@ class RegisterFormViewModel: ObservableObject {
     
     var canContinueWithRegisterAction: Bool {
         
-        if haveEmptyFields {
+        if hasEmptyFields {
             continueButtonDisabled = true
             presentingAlertType = .missingInformation
             presentAlert.toggle()
@@ -141,18 +145,46 @@ class RegisterFormViewModel: ObservableObject {
         }
     }
     
-    func reloadContinueButtonState() {
-        
-        continueButtonDisabled = haveEmptyFields
+    func cancelTasks() {
+        tasks.forEach({ $0.cancel() })
     }
     
-    func userRegistrationAction() async throws {
+    func reloadContinueButtonState() {
+        continueButtonDisabled = hasEmptyFields
+    }
+    
+    func userRegistrationAction() {
         
-        await MainActor.run {
-            screenLoading.toggle()
+        guard canContinueWithRegisterAction else { return }
+        
+        let userRegistrationTask = Task {
+            
+            await MainActor.run {
+                screenLoading.toggle()
+            }
+            
+            do {
+                try await uploadUserProfilePicture()
+                try await registerUser()
+                screenLoading.toggle()
+                endRegistrationProcess.toggle()
+            } catch {
+                
+                let errorMessage = (error as? GNetworkError)?.msg ?? "tryAgainLater".localized
+                
+                screenLoading.toggle()
+                presentingAlertType = .APIError(errorMessage: errorMessage)
+                presentAlert.toggle()
+                
+                logger.error("User registration failed with error: \(error.localizedDescription)")
+            }
         }
         
-        try await registerUser()
+        tasks.append(userRegistrationTask)
+    }
+    
+    private func uploadUserProfilePicture() async throws {
+        // ..
     }
     
     private func registerUser() async throws {
@@ -164,34 +196,15 @@ class RegisterFormViewModel: ObservableObject {
             password: password.trimmingCharacters(in: .newlines),
             confirmpassword: password.trimmingCharacters(in: .newlines))
         
-        do {
-            
-            let registrationResponse = try await networkService.performRequest(
-                useAuth: false,
-                endPoint: APIEndPoints.REGITER(),
-                typeToBeDecoded: UserRegisterResponse.self,
-                httpMethod: .POST,
-                requestBody: contractorRegister)
-            
-            UserDefaults.standard.setValue(registrationResponse.token, forKey: Constants.JWT)
-            UserDefaults.standard.setValue(registrationResponse.tokenExpTime, forKey: Constants.JWT_UNIX_EXPIRATION_TIME_STAMP)
-            UserDefaults.standard.setValue(Constants.APP_LOGGED_IN_CONTRACTOR, forKey: Constants.CURRENT_USER_LOGIN_STATE)
-            
-            await MainActor.run {
-                screenLoading.toggle()
-            }
-            
-        } catch {
-            
-            let errorMessage = (error as? GNetworkError)?.msg ?? "tryAgainLater".localized
-            
-            await MainActor.run {
-                screenLoading.toggle()
-                presentingAlertType = .APIError(errorMessage: errorMessage)
-                presentAlert.toggle()
-            }
-            
-            throw AppGenericError.networkDataRequestFailed
-        }
+        let registrationResponse = try await networkService.performRequest(
+            useAuth: false,
+            endPoint: APIEndPoints.REGITER(),
+            typeToBeDecoded: UserRegisterResponse.self,
+            httpMethod: .POST,
+            requestBody: contractorRegister)
+        
+        UserDefaults.standard.setValue(registrationResponse.token, forKey: Constants.JWT)
+        UserDefaults.standard.setValue(registrationResponse.tokenExpTime, forKey: Constants.JWT_UNIX_EXPIRATION_TIME_STAMP)
+        UserDefaults.standard.setValue(Constants.APP_LOGGED_IN_CONTRACTOR, forKey: Constants.CURRENT_USER_LOGIN_STATE)
     }
 }

@@ -7,7 +7,6 @@
 
 import SwiftUI
 import PhotosUI
-import OSLog
 
 struct RegisterFormView: View {
     
@@ -17,7 +16,6 @@ struct RegisterFormView: View {
     @State private var profileImageView: Image?
     @State private var profileImageItem: PhotosPickerItem?
     @FocusState private var focusedField: ContractorRegisterFields?
-    private var logger = Logger(subsystem: "RegisterFormView", category: "NetworkRequest")
     
     init(networkService: NetworkServiceProtocol, userRegistrationType: UserRegistrationType) {
         
@@ -34,10 +32,13 @@ struct RegisterFormView: View {
             
             ScrollView {
                 
-                imagePicker
-                contractorForm
-                confirmationButton
+                VStack {
+                    imagePicker
+                    contractorForm
+                    confirmationButton
+                }
             }
+            .scrollDismissesKeyboard(.interactively)
             
             spinner
         }
@@ -50,6 +51,13 @@ struct RegisterFormView: View {
             }
         } message: {
             Text(vm.alertMessageData.alertMessage)
+        }
+        .onChange(of: vm.endRegistrationProcess) { _ in
+            tabBarStateObject.tabBarState = .loggedContractor
+            dismiss()
+        }
+        .onDisappear {
+            vm.cancelTasks()
         }
     }
 }
@@ -79,17 +87,19 @@ private extension RegisterFormView {
             }
             .padding(.top, 30)
             .padding(.bottom, 30)
-            
         }
         .onChange(of: profileImageItem) { _ in
             
-            Task {
+            let imageDataTask = Task {
                 
                 guard let data = try? await profileImageItem?.loadTransferable(type: Data.self),
                       let uiImage = UIImage(data: data) else { return }
                 
                 profileImageView = Image(uiImage: uiImage)
+                vm.profileImageData = data
             }
+            
+            vm.tasks.append(imageDataTask)
         }
     }
     
@@ -211,22 +221,7 @@ private extension RegisterFormView {
     var confirmationButton: some View {
         
         Button {
-            
-            guard vm.canContinueWithRegisterAction else { return }
-            
-            Task {
-                do {
-                    try await vm.userRegistrationAction()
-                    await MainActor.run {
-                        tabBarStateObject.tabBarState = .loggedContractor
-                        dismiss()
-                    }
-                } catch {
-                    
-                    logger.error("User registration failed with error: \(error.localizedDescription)")
-                }
-            }
-            
+            vm.userRegistrationAction()
         } label: {
             Text("confirm".localized)
                 .fontWeight(.bold)

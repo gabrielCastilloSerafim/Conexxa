@@ -6,11 +6,17 @@
 //
 
 import Foundation
+import OSLog
 
-class LoginViewModel: ObservableObject {
+@MainActor
+final class LoginViewModel: ObservableObject {
     
     // Dependencies
     private let networkService: NetworkServiceProtocol
+    
+    // Properties
+    private var logger = Logger(subsystem: "LoginView", category: "NetworkRequest")
+    private var tasks: [Task<Void, Never>] = []
     var loginFormAlerts: LoginFormAlerts?
     
     // Publised variables
@@ -19,6 +25,7 @@ class LoginViewModel: ObservableObject {
     @Published var continueButtonDisabled: Bool = true
     @Published var screenLoading: Bool = false
     @Published var presentAlert: Bool = false
+    @Published var endLoginProcess: Bool = false
     
     init(networkService: NetworkServiceProtocol) {
         self.networkService = networkService
@@ -83,8 +90,11 @@ class LoginViewModel: ObservableObject {
         }
     }
     
+    func cancelTasks() {
+        tasks.forEach({ $0.cancel() })
+    }
+    
     func reloadContinueButtonState() {
-        
         continueButtonDisabled = haveEmptyFields
     }
     
@@ -114,46 +124,48 @@ class LoginViewModel: ObservableObject {
         return true
     }
     
-    func userLoginAction() async throws {
+    func userLoginAction() {
         
-        await MainActor.run {
+        guard canContinueWithRegisterAction() else { return }
+        
+        let userLoginTask = Task {
+            
             screenLoading.toggle()
-        }
-        
-        let userLogin =  UserLogin(
-            email: email.trimmingCharacters(in: .newlines).lowercased(),
-            password: password.trimmingCharacters(in: .newlines))
-        
-        do {
             
-            let loginResponse = try await networkService.performRequest(
-                useAuth: false,
-                endPoint: APIEndPoints.LOGIN(),
-                typeToBeDecoded: UserLoginResponse.self,
-                httpMethod: .POST,
-                requestBody: userLogin)
+            let userLogin =  UserLogin(
+                email: email.trimmingCharacters(in: .newlines).lowercased(),
+                password: password.trimmingCharacters(in: .newlines))
             
-            UserDefaults.standard.setValue(loginResponse.token, forKey: Constants.JWT)
-            UserDefaults.standard.setValue(loginResponse.tokenExpTime, forKey: Constants.JWT_UNIX_EXPIRATION_TIME_STAMP)
-            UserDefaults.standard.setValue(loginResponse.userId, forKey: Constants.USER_ID)
-            UserDefaults.standard.setValue(Constants.APP_LOGGED_IN_CONTRACTOR, forKey: Constants.CURRENT_USER_LOGIN_STATE)
-            
-            await MainActor.run {
+            do {
+                
+                let loginResponse = try await networkService.performRequest(
+                    useAuth: false,
+                    endPoint: APIEndPoints.LOGIN(),
+                    typeToBeDecoded: UserLoginResponse.self,
+                    httpMethod: .POST,
+                    requestBody: userLogin)
+                
+                UserDefaults.standard.setValue(loginResponse.token, forKey: Constants.JWT)
+                UserDefaults.standard.setValue(loginResponse.tokenExpTime, forKey: Constants.JWT_UNIX_EXPIRATION_TIME_STAMP)
+                UserDefaults.standard.setValue(loginResponse.userId, forKey: Constants.USER_ID)
+                UserDefaults.standard.setValue(Constants.APP_LOGGED_IN_CONTRACTOR, forKey: Constants.CURRENT_USER_LOGIN_STATE)
+                
                 screenLoading.toggle()
-            }
-            
-        } catch {
-            
-            let errorMessage = (error as? GNetworkError)?.msg ?? "".localized
-            
-            await MainActor.run {
+                endLoginProcess.toggle()
+                
+            } catch {
+                
+                let errorMessage = (error as? GNetworkError)?.msg ?? "".localized
+                
                 screenLoading.toggle()
                 loginFormAlerts = .APIError(errorMessage: errorMessage)
                 presentAlert.toggle()
+                
+                logger.error("User login failed with error: \(error.localizedDescription)")
             }
-            
-            throw AppGenericError.networkDataRequestFailed
         }
+        
+        tasks.append(userLoginTask)
     }
     
 }

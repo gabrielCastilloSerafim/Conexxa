@@ -41,7 +41,6 @@
 		FF893FDE2AB73E40005A87B7 /* ConexxaColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF893FDD2AB73E40005A87B7 /* ConexxaColor.swift */; };
 		FF893FE02AB73E65005A87B7 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF893FDF2AB73E65005A87B7 /* ColorExtension.swift */; };
 		FF893FE32AB753C9005A87B7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF893FE22AB753C9005A87B7 /* LaunchScreen.storyboard */; };
-		FF99832B2B232934005D130A /* AppGenericErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF99832A2B232934005D130A /* AppGenericErrors.swift */; };
 		FFBE58622B21338A00D573CD /* TabBarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFBE58612B21338A00D573CD /* TabBarModel.swift */; };
 		FFBFC0182AE5259100A0DDB1 /* SchedulesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFBFC0172AE5259100A0DDB1 /* SchedulesModel.swift */; };
 		FFBFC01A2AE52A0D00A0DDB1 /* ConexxaEmptyScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFBFC0192AE52A0D00A0DDB1 /* ConexxaEmptyScreen.swift */; };
@@ -126,7 +125,6 @@
 		FF893FDF2AB73E65005A87B7 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		FF893FE12AB75090005A87B7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FF893FE22AB753C9005A87B7 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
-		FF99832A2B232934005D130A /* AppGenericErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppGenericErrors.swift; sourceTree = "<group>"; };
 		FFBE58612B21338A00D573CD /* TabBarModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarModel.swift; sourceTree = "<group>"; };
 		FFBFC0172AE5259100A0DDB1 /* SchedulesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchedulesModel.swift; sourceTree = "<group>"; };
 		FFBFC0192AE52A0D00A0DDB1 /* ConexxaEmptyScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConexxaEmptyScreen.swift; sourceTree = "<group>"; };
@@ -210,7 +208,6 @@
 			isa = PBXGroup;
 			children = (
 				FF03FCB72ADC528B006072D8 /* Navigation.swift */,
-				FF99832A2B232934005D130A /* AppGenericErrors.swift */,
 			);
 			path = GenericModels;
 			sourceTree = "<group>";
@@ -656,7 +653,6 @@
 				FFC1C6222AC05D1400A91EF6 /* FavoritesViewModel.swift in Sources */,
 				FFE7AB242B20B4A800F78B9E /* LoginViewModel.swift in Sources */,
 				FF3D7B802B21CBE50012006B /* DecodableObjects.swift in Sources */,
-				FF99832B2B232934005D130A /* AppGenericErrors.swift in Sources */,
 				FF26344E2AC97BA500656145 /* FilterSelectionView.swift in Sources */,
 				FF01B7052B208621005F914A /* APIEndPoints.swift in Sources */,
 				FFC1C62B2AC05FB400A91EF6 /* ProfileViewModel.swift in Sources */,
