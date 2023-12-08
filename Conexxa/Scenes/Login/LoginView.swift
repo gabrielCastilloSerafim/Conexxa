@@ -37,25 +37,26 @@ struct LoginView: View {
         .navigationTitle("login".localized)
         .navigationBarTitleDisplayMode(.large)
         .disabled(vm.screenLoading)
+        .alert(vm.alertMessageData.alertTitle, isPresented: $vm.presentAlert) {
+            Button("ok".localized, role: .cancel) {
+                focusedField = vm.alertMessageData.alertCompletionField
+            }
+        } message: {
+            Text(vm.alertMessageData.alertMessage)
+        }
+
     }
 }
 
 private extension LoginView {
     
-    enum LiginFields {
-        
-        case email
-        case password
-    }
-
-    
     var loginForm: some View {
         
         List {
             
-            Section("Conta") {
+            Section("account".localized) {
                 
-                TextField("Email", text: $vm.email)
+                TextField("email".localized, text: $vm.email)
                     .textInputAutocapitalization(.never)
                     .focused($focusedField, equals: .email)
                     .autocorrectionDisabled()
@@ -64,7 +65,7 @@ private extension LoginView {
                         vm.reloadContinueButtonState()
                     })
                 
-                SecureField("Senha", text: $vm.password)
+                SecureField("password".localized, text: $vm.password)
                     .textInputAutocapitalization(.none)
                     .focused($focusedField, equals: .password)
                     .autocorrectionDisabled()
@@ -109,9 +110,6 @@ private extension LoginView {
                         dismiss()
                     }
                 } catch {
-                    await MainActor.run {
-                        vm.screenLoading.toggle()
-                    }
                     logger.error("User login failed with error: \(error.localizedDescription)")
                 }
             }

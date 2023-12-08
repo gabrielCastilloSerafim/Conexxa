@@ -50,8 +50,10 @@ class NetworkService: NetworkServiceProtocol {
                 
                 if !(200..<300).contains(httpResponse.statusCode) {
                     
+                    let decodedResponseWithError = try JSONDecoder().decode(GNetworkError.self, from: data)
+                    
                     logger.error("Response failed with statusCode: \(httpResponse.statusCode)")
-                    throw GNetworkError.failedWithStatusCode(statusCode: httpResponse.statusCode)
+                    throw decodedResponseWithError
                 }
                 
                 logger.info("Did receive response with status code: \(httpResponse.statusCode)")

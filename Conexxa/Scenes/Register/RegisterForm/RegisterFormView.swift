@@ -44,47 +44,17 @@ struct RegisterFormView: View {
         .disabled(vm.screenLoading)
         .navigationTitle("register".localized)
         .navigationBarTitleDisplayMode(.large)
-        .alert("badEmailAlertTitle".localized, isPresented: $vm.badEmailAlert) {
+        .alert(vm.alertMessageData.alertTitle, isPresented: $vm.presentAlert) {
             Button("ok".localized, role: .cancel) {
-                focusedField = .email
+                focusedField = vm.alertMessageData.alertCompletionField
             }
         } message: {
-            Text("badEmailAlertMessage".localized)
-        }
-        .alert("passwordMissmatchAlertTitle".localized, isPresented: $vm.passwordMissMatchAlert) {
-            Button("ok".localized, role: .cancel) {
-                focusedField = .password
-            }
-        } message: {
-            Text("passwordMissmatchAlertMessage".localized)
-        }
-        .alert("invalidPasswordAlertTitle".localized, isPresented: $vm.invalidPasswordAlert) {
-            Button("ok".localized, role: .cancel) {
-                focusedField = .password
-            }
-        } message: {
-            Text("invalidPasswordAlertMessage".localized)
-        }
-        .alert("missingInformationAlertTitle".localized, isPresented: $vm.missingFieldsAlert) {
-            Button("ok".localized, role: .cancel) {
-                focusedField = nil
-            }
-        } message: {
-            Text("missingInformationAlertMessage".localized)
+            Text(vm.alertMessageData.alertMessage)
         }
     }
 }
 
 private extension RegisterFormView {
-    
-    enum ContractorRegisterFields {
-        
-        case name
-        case surname
-        case email
-        case password
-        case passwordConfirm
-    }
     
     var imagePicker: some View {
             
@@ -158,9 +128,9 @@ private extension RegisterFormView {
         
         List {
             
-            Section("Informação pessoal") {
+            Section("personalInfo".localized) {
                 
-                TextField("Nome", text: $vm.name)
+                TextField("name".localized, text: $vm.name)
                     .textInputAutocapitalization(.words)
                     .focused($focusedField, equals: .name)
                     .autocorrectionDisabled()
@@ -169,7 +139,7 @@ private extension RegisterFormView {
                         vm.reloadContinueButtonState()
                     })
                 
-                TextField("Sobrenome", text: $vm.surname)
+                TextField("surname".localized, text: $vm.surname)
                     .textInputAutocapitalization(.words)
                     .focused($focusedField, equals: .surname)
                     .autocorrectionDisabled()
@@ -179,9 +149,9 @@ private extension RegisterFormView {
                     })
             }
             
-            Section("Conta") {
+            Section("account".localized) {
                 
-                TextField("Email", text: $vm.email)
+                TextField("email".localized, text: $vm.email)
                     .textInputAutocapitalization(.never)
                     .focused($focusedField, equals: .email)
                     .autocorrectionDisabled()
@@ -191,7 +161,7 @@ private extension RegisterFormView {
                         vm.reloadContinueButtonState()
                     })
                 
-                SecureField("Senha", text: $vm.password)
+                SecureField("password".localized, text: $vm.password)
                     .focused($focusedField, equals: .password)
                     .textInputAutocapitalization(.never)
                     .autocorrectionDisabled()
@@ -200,7 +170,7 @@ private extension RegisterFormView {
                         vm.reloadContinueButtonState()
                     })
                 
-                SecureField("Confirmação da senha", text: $vm.passwordConfirmation)
+                SecureField("passwordConfirm".localized, text: $vm.passwordConfirmation)
                     .textInputAutocapitalization(.never)
                     .focused($focusedField, equals: .passwordConfirm)
                     .autocorrectionDisabled()
@@ -252,9 +222,7 @@ private extension RegisterFormView {
                         dismiss()
                     }
                 } catch {
-                    await MainActor.run {
-                        vm.screenLoading.toggle()
-                    }
+                    
                     logger.error("User registration failed with error: \(error.localizedDescription)")
                 }
             }

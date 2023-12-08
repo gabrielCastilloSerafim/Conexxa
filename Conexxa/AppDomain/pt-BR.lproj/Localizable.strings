@@ -45,8 +45,17 @@
 "invalidPasswordAlertTitle" = "A senha nao possui um formato válido 😕";
 "invalidPasswordAlertMessage" = "Para proseguir a senha deve conter um mínimo de 8 caracteres.";
 "missingInformationAlertTitle" = "Falta informação 😕";
+"upsAlert" = "Ups! Ocorreu um erro 🤯";
 "missingInformationAlertMessage" = "Para poder proseguir preencha todos os campos.";
 "ok" = "Ok";
+"name" = "Nome";
+"surname" = "Sobrenome";
+"personalInfo" = "Informação pessoal";
+"account" = "Conta";
+"email" = "Email";
+"password" = "Senha";
+"passwordConfirm" = "Confirmação da senha";
+"tryAgainLater" = "Tente novamente mais tarde.";
 
 // Empty Screens
 "noBookings" = "Sem agendamentos";

@@ -17,9 +17,9 @@ protocol NetworkServiceProtocol {
         requestBody: E?) async throws -> D
 }
 
-enum GNetworkError: Error {
+struct GNetworkError: Error, Decodable {
     
-    case failedWithStatusCode(statusCode: Int)
+    let msg: String
 }
 
 enum HttpMethods: String {

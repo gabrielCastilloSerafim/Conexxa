@@ -15,6 +15,7 @@ class RegisterFormViewModel: ObservableObject {
     // Properties
     let userRegistrationType: UserRegistrationType
     var profileImageData: Data?
+    var presentingAlertType: RegisterFormAlerts?
     
     // Publised variables
     @Published var name: String = ""
@@ -23,10 +24,7 @@ class RegisterFormViewModel: ObservableObject {
     @Published var password: String = ""
     @Published var passwordConfirmation: String = ""
     @Published var continueButtonDisabled: Bool = true
-    @Published var badEmailAlert: Bool = false
-    @Published var passwordMissMatchAlert: Bool = false
-    @Published var invalidPasswordAlert: Bool = false
-    @Published var missingFieldsAlert: Bool = false
+    @Published var presentAlert: Bool = false
     @Published var screenLoading: Bool = false
 
     
@@ -66,29 +64,81 @@ class RegisterFormViewModel: ObservableObject {
         
         if haveEmptyFields {
             continueButtonDisabled = true
-            missingFieldsAlert.toggle()
+            presentingAlertType = .missingInformation
+            presentAlert.toggle()
             return false
         }
         
         if !isValidEmail {
             continueButtonDisabled = true
-            badEmailAlert.toggle()
+            presentingAlertType = .badEmail
+            presentAlert.toggle()
             return false
         }
         
         if !isValidPassWord {
             continueButtonDisabled = true
-            invalidPasswordAlert.toggle()
+            presentingAlertType = .invalidPassword
+            presentAlert.toggle()
             return false
         }
         
         if !passwordsMatch {
             continueButtonDisabled = true
-            passwordMissMatchAlert.toggle()
+            presentingAlertType = .passwordMissmatch
+            presentAlert.toggle()
             return false
         }
         
         return true
+    }
+    
+    var alertMessageData: RegisterAlertsModel {
+        
+        switch presentingAlertType {
+            
+        case .badEmail:
+            
+            return RegisterAlertsModel(
+                alertTitle: "badEmailAlertTitle".localized,
+                alertMessage: "badEmailAlertMessage".localized,
+                alertCompletionField: .email)
+            
+        case .passwordMissmatch:
+            
+            return RegisterAlertsModel(
+                alertTitle: "passwordMissmatchAlertTitle".localized,
+                alertMessage: "passwordMissmatchAlertMessage".localized,
+                alertCompletionField: .password)
+            
+        case .invalidPassword:
+            
+            return RegisterAlertsModel(
+                alertTitle: "invalidPasswordAlertTitle".localized,
+                alertMessage: "invalidPasswordAlertMessage".localized,
+                alertCompletionField: .password)
+            
+        case .missingInformation:
+            
+            return RegisterAlertsModel(
+                alertTitle: "missingInformationAlertTitle".localized,
+                alertMessage: "missingInformationAlertMessage".localized,
+                alertCompletionField: nil)
+            
+        case .APIError(let errorMessage):
+            
+            return RegisterAlertsModel(
+                alertTitle: "upsAlert".localized,
+                alertMessage: errorMessage,
+                alertCompletionField: nil)
+            
+        case .none:
+            
+            return RegisterAlertsModel(
+                alertTitle: "upsAlert".localized,
+                alertMessage: "tryAgainLater".localized,
+                alertCompletionField: nil)
+        }
     }
     
     func reloadContinueButtonState() {
@@ -101,6 +151,7 @@ class RegisterFormViewModel: ObservableObject {
         await MainActor.run {
             screenLoading.toggle()
         }
+        
         try await registerUser()
     }
     
@@ -113,20 +164,34 @@ class RegisterFormViewModel: ObservableObject {
             password: password.trimmingCharacters(in: .newlines),
             confirmpassword: password.trimmingCharacters(in: .newlines))
         
-        
-        let registrationResponse = try await networkService.performRequest(
-            useAuth: false,
-            endPoint: APIEndPoints.REGITER(),
-            typeToBeDecoded: UserRegisterResponse.self,
-            httpMethod: .POST,
-            requestBody: contractorRegister)
-        
-        UserDefaults.standard.setValue(registrationResponse.token, forKey: Constants.JWT)
-        UserDefaults.standard.setValue(registrationResponse.tokenExpTime, forKey: Constants.JWT_UNIX_EXPIRATION_TIME_STAMP)
-        UserDefaults.standard.setValue(Constants.APP_LOGGED_IN_CONTRACTOR, forKey: Constants.CURRENT_USER_LOGIN_STATE)
-        
-        await MainActor.run {
-            screenLoading.toggle()
+        do {
+            
+            let registrationResponse = try await networkService.performRequest(
+                useAuth: false,
+                endPoint: APIEndPoints.REGITER(),
+                typeToBeDecoded: UserRegisterResponse.self,
+                httpMethod: .POST,
+                requestBody: contractorRegister)
+            
+            UserDefaults.standard.setValue(registrationResponse.token, forKey: Constants.JWT)
+            UserDefaults.standard.setValue(registrationResponse.tokenExpTime, forKey: Constants.JWT_UNIX_EXPIRATION_TIME_STAMP)
+            UserDefaults.standard.setValue(Constants.APP_LOGGED_IN_CONTRACTOR, forKey: Constants.CURRENT_USER_LOGIN_STATE)
+            
+            await MainActor.run {
+                screenLoading.toggle()
+            }
+            
+        } catch {
+            
+            let errorMessage = (error as? GNetworkError)?.msg ?? "tryAgainLater".localized
+            
+            await MainActor.run {
+                screenLoading.toggle()
+                presentingAlertType = .APIError(errorMessage: errorMessage)
+                presentAlert.toggle()
+            }
+            
+            throw AppGenericError.networkDataRequestFailed
         }
     }
 }

@@ -15,7 +15,6 @@ struct ConexxaApp: App {
         WindowGroup {
             
             ZStack {
-                
                 TabBar()
             }
         }

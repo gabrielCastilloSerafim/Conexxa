@@ -24,6 +24,8 @@
 		FF3D7B7E2B21C5540012006B /* EncodableObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3D7B7D2B21C5540012006B /* EncodableObjects.swift */; };
 		FF3D7B802B21CBE50012006B /* DecodableObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3D7B7F2B21CBE50012006B /* DecodableObjects.swift */; };
 		FF3D7B822B21D57D0012006B /* ConexxaSpinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3D7B812B21D57D0012006B /* ConexxaSpinner.swift */; };
+		FF3D7B862B226ADC0012006B /* RegisterFormModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3D7B852B226ADC0012006B /* RegisterFormModel.swift */; };
+		FF3D7B882B2322560012006B /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3D7B872B2322560012006B /* LoginModel.swift */; };
 		FF5E81762AAE36CC002E6E1B /* ConexxaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5E81752AAE36CC002E6E1B /* ConexxaApp.swift */; };
 		FF5E81782AAE36CC002E6E1B /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5E81772AAE36CC002E6E1B /* OnboardingView.swift */; };
 		FF5E817A2AAE36CD002E6E1B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF5E81792AAE36CD002E6E1B /* Assets.xcassets */; };
@@ -39,6 +41,7 @@
 		FF893FDE2AB73E40005A87B7 /* ConexxaColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF893FDD2AB73E40005A87B7 /* ConexxaColor.swift */; };
 		FF893FE02AB73E65005A87B7 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF893FDF2AB73E65005A87B7 /* ColorExtension.swift */; };
 		FF893FE32AB753C9005A87B7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF893FE22AB753C9005A87B7 /* LaunchScreen.storyboard */; };
+		FF99832B2B232934005D130A /* AppGenericErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF99832A2B232934005D130A /* AppGenericErrors.swift */; };
 		FFBE58622B21338A00D573CD /* TabBarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFBE58612B21338A00D573CD /* TabBarModel.swift */; };
 		FFBFC0182AE5259100A0DDB1 /* SchedulesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFBFC0172AE5259100A0DDB1 /* SchedulesModel.swift */; };
 		FFBFC01A2AE52A0D00A0DDB1 /* ConexxaEmptyScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFBFC0192AE52A0D00A0DDB1 /* ConexxaEmptyScreen.swift */; };
@@ -101,6 +104,8 @@
 		FF3D7B7D2B21C5540012006B /* EncodableObjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncodableObjects.swift; sourceTree = "<group>"; };
 		FF3D7B7F2B21CBE50012006B /* DecodableObjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodableObjects.swift; sourceTree = "<group>"; };
 		FF3D7B812B21D57D0012006B /* ConexxaSpinner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConexxaSpinner.swift; sourceTree = "<group>"; };
+		FF3D7B852B226ADC0012006B /* RegisterFormModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterFormModel.swift; sourceTree = "<group>"; };
+		FF3D7B872B2322560012006B /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
 		FF5E81722AAE36CC002E6E1B /* Conexxa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Conexxa.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF5E81752AAE36CC002E6E1B /* ConexxaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConexxaApp.swift; sourceTree = "<group>"; };
 		FF5E81772AAE36CC002E6E1B /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
@@ -121,6 +126,7 @@
 		FF893FDF2AB73E65005A87B7 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		FF893FE12AB75090005A87B7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FF893FE22AB753C9005A87B7 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		FF99832A2B232934005D130A /* AppGenericErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppGenericErrors.swift; sourceTree = "<group>"; };
 		FFBE58612B21338A00D573CD /* TabBarModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarModel.swift; sourceTree = "<group>"; };
 		FFBFC0172AE5259100A0DDB1 /* SchedulesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchedulesModel.swift; sourceTree = "<group>"; };
 		FFBFC0192AE52A0D00A0DDB1 /* ConexxaEmptyScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConexxaEmptyScreen.swift; sourceTree = "<group>"; };
@@ -195,16 +201,18 @@
 			children = (
 				FF01B7132B2086CC005F914A /* RegisterFormView.swift */,
 				FF01B7122B2086CC005F914A /* RegisterFormViewModel.swift */,
+				FF3D7B852B226ADC0012006B /* RegisterFormModel.swift */,
 			);
 			path = RegisterForm;
 			sourceTree = "<group>";
 		};
-		FF03FCB92ADC529B006072D8 /* GenericProtocols */ = {
+		FF03FCB92ADC529B006072D8 /* GenericModels */ = {
 			isa = PBXGroup;
 			children = (
 				FF03FCB72ADC528B006072D8 /* Navigation.swift */,
+				FF99832A2B232934005D130A /* AppGenericErrors.swift */,
 			);
-			path = GenericProtocols;
+			path = GenericModels;
 			sourceTree = "<group>";
 		};
 		FF03FCBA2ADC5324006072D8 /* BandDetails */ = {
@@ -330,7 +338,7 @@
 				FFC1C6322AC0851900A91EF6 /* Constants */,
 				FF893FDC2AB73E28005A87B7 /* Designables */,
 				FF893FCD2AB2626E005A87B7 /* FoundationExtensions */,
-				FF03FCB92ADC529B006072D8 /* GenericProtocols */,
+				FF03FCB92ADC529B006072D8 /* GenericModels */,
 			);
 			path = AppUtils;
 			sourceTree = "<group>";
@@ -450,6 +458,7 @@
 			children = (
 				FFE7AB212B20B49E00F78B9E /* LoginView.swift */,
 				FFE7AB232B20B4A800F78B9E /* LoginViewModel.swift */,
+				FF3D7B872B2322560012006B /* LoginModel.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -623,6 +632,7 @@
 				FFBFC01A2AE52A0D00A0DDB1 /* ConexxaEmptyScreen.swift in Sources */,
 				FF3D7B7E2B21C5540012006B /* EncodableObjects.swift in Sources */,
 				FFC1C6122AC0578E00A91EF6 /* HomeView.swift in Sources */,
+				FF3D7B862B226ADC0012006B /* RegisterFormModel.swift in Sources */,
 				FFC1C6192AC05BB900A91EF6 /* SchedulesView.swift in Sources */,
 				FFE7AB342B20C3C900F78B9E /* ViewExtension.swift in Sources */,
 				FFE7AB222B20B49E00F78B9E /* LoginView.swift in Sources */,
@@ -633,6 +643,7 @@
 				FFC1C60F2AC0551300A91EF6 /* TabBar.swift in Sources */,
 				FF893FD92AB582E5005A87B7 /* OnboardingViewModel.swift in Sources */,
 				FFBFC0242AE53BB500A0DDB1 /* NetworkService.swift in Sources */,
+				FF3D7B882B2322560012006B /* LoginModel.swift in Sources */,
 				FFE7AB292B20B87300F78B9E /* UIFactory.swift in Sources */,
 				FFBE58622B21338A00D573CD /* TabBarModel.swift in Sources */,
 				FF893FDE2AB73E40005A87B7 /* ConexxaColor.swift in Sources */,
@@ -645,6 +656,7 @@
 				FFC1C6222AC05D1400A91EF6 /* FavoritesViewModel.swift in Sources */,
 				FFE7AB242B20B4A800F78B9E /* LoginViewModel.swift in Sources */,
 				FF3D7B802B21CBE50012006B /* DecodableObjects.swift in Sources */,
+				FF99832B2B232934005D130A /* AppGenericErrors.swift in Sources */,
 				FF26344E2AC97BA500656145 /* FilterSelectionView.swift in Sources */,
 				FF01B7052B208621005F914A /* APIEndPoints.swift in Sources */,
 				FFC1C62B2AC05FB400A91EF6 /* ProfileViewModel.swift in Sources */,
